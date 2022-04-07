@@ -13,12 +13,12 @@ Connection::~Connection()
 }
 
 void Connection::InitialiseSocket()
-{
+{/*
 	WSADATA wsaData;
 	if (int errorCode = WSAStartup(MAKEWORD(2, 2), &wsaData) < 0)
 	{
 		throw WSAGetLastError();
-	}
+	}*/
 }
 
 void Connection::CreateSocket()
@@ -27,6 +27,6 @@ void Connection::CreateSocket()
 
 	if (sockfd <= 0)
 	{
-		throw WSAGetLastError();
+		throw "Socket failed to create";
 	}
 }

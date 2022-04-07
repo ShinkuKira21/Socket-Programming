@@ -1,6 +1,6 @@
 #pragma once
 
-#include "INet4Address.h"
+#include "../../Libraries/INet4Address.h"
 #include "ConnectionInstance.h"
 
 class Connection
@@ -14,7 +14,7 @@ public:
 
 protected:
 	INet4Address *address;
-	SOCKET sockfd;
+	int sockfd;
 
 };
 

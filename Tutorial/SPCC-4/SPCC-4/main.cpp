@@ -74,13 +74,13 @@ namespace e2
 		const size_t numThreads = 4;
 		int* tArray = new int[arraySize];
 
-		std::thread** thread = new std::thread*[4];
-		for (size_t i = 0; i < 4; i++)
+		std::thread** thread = new std::thread*[numThreads];
+		for (size_t i = 0; i < numThreads; i++)
 		{
 			thread[i] = new std::thread([tArray, arraySize, i, numThreads] {SetArrayThreaded(tArray, arraySize, i, numThreads); });
 		}
 
-		for(size_t i = 0; i < 4; i++)
+		for(size_t i = 0; i < numThreads; i++)
 		{
 			thread[i]->join();
 			delete thread[i];

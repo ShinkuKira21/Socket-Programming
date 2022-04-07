@@ -1,6 +1,5 @@
 #pragma once
 
-#include <WS2tcpip.h>
 #include <string>
 
 using namespace std;
@@ -8,7 +7,7 @@ using namespace std;
 class ConnectionInstance
 {
 public:
-	ConnectionInstance(SOCKET sock);
+	ConnectionInstance(int sock);
 	~ConnectionInstance();
 
 	void Writen(const char *data, int bytesToWrite);
@@ -20,10 +19,10 @@ public:
 	void SendString(string value);
 	string ReceiveString();
 
-	void SetSocket(SOCKET sock);
-	SOCKET GetSocket();
+	void SetSocket(int sock);
+	int GetSocket();
 
 private:
-	SOCKET sock;
+	int sock;
 };
 

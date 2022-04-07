@@ -2,7 +2,7 @@
 
 
 
-ConnectionInstance::ConnectionInstance(SOCKET sock)
+ConnectionInstance::ConnectionInstance(int sock)
 {
 	this->sock = sock;
 }
@@ -135,12 +135,12 @@ string ConnectionInstance::ReceiveString()
 
 }
 
-void ConnectionInstance::SetSocket(SOCKET sock)
+void ConnectionInstance::SetSocket(int sock)
 {
 	this->sock = sock;
 }
 
-SOCKET ConnectionInstance::GetSocket()
+int ConnectionInstance::GetSocket()
 {
 	return sock;
 }

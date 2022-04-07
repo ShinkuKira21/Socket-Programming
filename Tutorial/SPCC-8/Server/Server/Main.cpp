@@ -4,14 +4,14 @@
 #include <thread>
 
 #include "ServerConnection.h"
-#include "INet4Address.h"
+#include "../../Libraries/INet4Address.h"
 #include "Shape.h"
 #include "Circle.h"
 #include "Rectangle.h"
 
-#pragma comment (lib, "Ws2_32.lib")
-#pragma comment (lib, "Mswsock.lib")
-#pragma comment (lib, "AdvApi32.lib")
+//#pragma comment (lib, "Ws2_32.lib")
+//#pragma comment (lib, "Mswsock.lib")
+//#pragma comment (lib, "AdvApi32.lib")
 
 using namespace networkshapes;
 using namespace std;

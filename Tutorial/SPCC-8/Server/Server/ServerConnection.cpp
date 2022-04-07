@@ -1,7 +1,5 @@
 #include "ServerConnection.h"
 
-
-
 ServerConnection::ServerConnection(INet4Address* address) : Connection(address)
 {
 }
@@ -9,13 +7,14 @@ ServerConnection::ServerConnection(INet4Address* address) : Connection(address)
 
 ServerConnection::~ServerConnection()
 {
+
 }
 
 void ServerConnection::BindSocket()
 {
 	if (int errorCode = ::bind(sockfd, (sockaddr *)address->GetSockaddrRef(), (int)address->GetSocketAddressLengthVal()) < 0)
 	{
-		throw WSAGetLastError();
+		throw "Binding socket failed";
 	}
 }
 
@@ -23,17 +22,17 @@ void ServerConnection::ListenOnSocket(int backlog)
 {
 	if (listen(sockfd, backlog) < 0)
 	{
-		throw WSAGetLastError();
+		throw "Listening socket failed";
 	}
 }
 
 ConnectionInstance* ServerConnection::AcceptClient()
 {
-	SOCKET clientSock;
+	int clientSock;
 
-	if ((clientSock = accept(sockfd, (sockaddr*)address->GetSockaddrRef(), (int*)address->GetSocketAddressLengthRef())) < 0)
+	if ((clientSock = accept(sockfd, (sockaddr*)address->GetSockaddrRef(), (socklen_t*)address->GetSocketAddressLengthRef())) < 0)
 	{
-		throw WSAGetLastError();
+		throw "Accept socket failed";
 	}
 
 	return new ConnectionInstance(clientSock);

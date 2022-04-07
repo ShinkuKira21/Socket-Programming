@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SocialRPS</string>
+    <string name="socialrps_name_empty">Please enter a player name!</string>
+    <string name="socialrps_space_charcter">Space characters are forbidden!</string>
+    <string name="socialrps_special_character">Special characters are forbidden!</string>
+    <string name="socialrps_status_findinggame">Finding Game...</string>
+    <string name="socialrps_chatbox_title">Chatbox</string>
+    <string name="socialrps_chatbox_send">Send</string>
+    <string name="socialrps_chatbox_inputHint">Message...</string>
+    <string name="socialrps_game_ready">Ready</string>
+</resources>

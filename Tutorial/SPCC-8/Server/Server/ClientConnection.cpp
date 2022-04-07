@@ -15,7 +15,7 @@ void ClientConnection::BindConnection()
 {
 	if (int errorCode = connect(sockfd, (sockaddr*)address->GetSockaddrRef(), (int)address->GetSocketAddressLengthVal()) < 0)
 	{
-		throw WSAGetLastError();
+		throw "Error binding";
 	}
 }
 
