@@ -10,7 +10,7 @@
         android:id="@+id/txtTitle"
         android:layout_width="359dp"
         android:layout_height="171dp"
-        android:text="Social\nRock, Paper, Scizzors"
+        android:text="@string/socialrps_app_title"
         android:textAlignment="center"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -35,7 +35,7 @@
             android:layout_height="55dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Player Name..."
+            android:hint="@string/socialrps_hint_playerName"
             android:inputType="textPersonName" />
     </LinearLayout>
 

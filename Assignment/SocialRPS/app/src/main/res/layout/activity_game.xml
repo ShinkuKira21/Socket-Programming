@@ -29,10 +29,17 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="chbxP2Status,swP1Status" />
+
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/grpChatbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tbarChatbox,rcviewChatbox,btnChatboxSend,txtChatboxTitle" />
+        app:constraint_referenced_ids="tbarChatbox,txtChatboxTitle,rcviewChatbox,txtbxChatboxMessage,btnChatboxSend" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbarChatbox"
@@ -45,28 +52,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcviewChatbox"
-        android:layout_width="403dp"
-        android:layout_height="282dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbarChatbox">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <Button
-        android:id="@+id/btnReadyUp"
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpActions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="743dp"
-        android:layout_marginBottom="100dp"
-        android:text="@string/socialrps_game_ready"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        app:constraint_referenced_ids="ibtnPaper,@+id/ibtn_scissors,ibtnRock,txtCountdown"
+        tools:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcviewChatbox"
+        android:layout_width="398dp"
+        android:layout_height="410dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tbarChatbox"
+        tools:itemCount="4">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/btnChatboxSend"
@@ -74,17 +77,19 @@
         android:layout_height="wrap_content"
         android:text="@string/socialrps_chatbox_send"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/txtbxChatboxMessage"
         app:layout_constraintTop_toBottomOf="@+id/rcviewChatbox" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtbxChatboxMessage"
         android:layout_width="309dp"
         android:layout_height="49dp"
         android:ems="10"
         android:hint="@string/socialrps_chatbox_inputHint"
+        android:importantForAutofill="no"
         android:inputType="textShortMessage|textLongMessage|textMultiLine|textPersonName"
         android:singleLine="false"
+        android:textColorHint="#757575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rcviewChatbox" />
 
@@ -99,9 +104,93 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tbarChatbox"
         app:layout_constraintEnd_toEndOf="@id/tbarChatbox"
-        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="@+id/tbarChatbox"
         app:layout_constraintTop_toTopOf="@+id/tbarChatbox"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintVertical_bias="0.666" />
+
+    <CheckBox
+        android:id="@+id/chbxP2Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="#03A9F4"
+        android:clickable="false"
+        android:text="Charlotte's Status"
+        app:layout_constraintBottom_toTopOf="@+id/swP1Status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/swP1Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:minHeight="48dp"
+        android:text="@string/socialrps_game_ready"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibtnScissors"
+        android:layout_width="89dp"
+        android:layout_height="87dp"
+        android:background="@android:color/holo_blue_dark"
+        android:contentDescription="@string/socialrps_accessibility_scissors"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtnPaper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ibtnPaper"
+        app:layout_constraintTop_toTopOf="@+id/ibtnPaper"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/scizzors" />
+
+    <ImageButton
+        android:id="@+id/ibtnRock"
+        android:layout_width="89dp"
+        android:layout_height="87dp"
+        android:background="@android:color/holo_blue_bright"
+        android:contentDescription="@string/socialrps_accessibility_rock"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtnPaper"
+        app:layout_constraintEnd_toStartOf="@+id/ibtnPaper"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ibtnPaper"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/rock" />
+
+    <ImageButton
+        android:id="@+id/ibtnPaper"
+        android:layout_width="89dp"
+        android:layout_height="87dp"
+        android:background="@android:color/holo_blue_light"
+        android:contentDescription="@string/socialrps_accessibility_paper"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/swP1Status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage"
+        app:layout_constraintVertical_bias="0.775"
+        app:srcCompat="@drawable/paper" />
+
+    <TextView
+        android:id="@+id/txtCountdown"
+        android:layout_width="52dp"
+        android:layout_height="80dp"
+        android:text="3"
+        android:textAlignment="center"
+        android:textColor="@color/material_dynamic_neutral0"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/ibtnPaper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage"
+        app:layout_constraintVertical_bias="0.571" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

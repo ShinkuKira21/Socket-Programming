@@ -7,5 +7,10 @@
     <string name="socialrps_chatbox_title">Chatbox</string>
     <string name="socialrps_chatbox_send">Send</string>
     <string name="socialrps_chatbox_inputHint">Message...</string>
-    <string name="socialrps_game_ready">Ready</string>
+    <string name="socialrps_game_ready">Ready to Play?</string>
+    <string name="socialrps_accessibility_rock">Rock</string>
+    <string name="socialrps_accessibility_paper">Paper</string>
+    <string name="socialrps_accessibility_scissors">Scissors</string>
+    <string name="socialrps_app_title">Social\nRock, Paper, Scissors</string>
+    <string name="socialrps_hint_playerName">Player Name...</string>
 </resources>
