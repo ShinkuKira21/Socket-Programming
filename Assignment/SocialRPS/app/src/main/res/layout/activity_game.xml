@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="ibtnPaper,@+id/ibtn_scissors,ibtnRock,txtCountdown"
+        app:constraint_referenced_ids="ibtnPaper,@+id/ibtnscissors,ibtnRock,txtCountdown"
         tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView

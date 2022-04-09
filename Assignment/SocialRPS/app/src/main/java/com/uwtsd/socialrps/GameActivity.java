@@ -17,6 +17,7 @@ public class GameActivity extends AppCompatActivity {
 
     private ActivityGameBinding binding;
     private AnimationThreads animFindingGame;
+    ActionManager actionManager;
     private String playerName;
 
     @Override
@@ -29,7 +30,11 @@ public class GameActivity extends AppCompatActivity {
 
         //FindGame();
         // Binding setup for actions
-        ActionManager actionManager = new ActionManager(binding);
+        actionManager = new ActionManager(binding);
+        while(actionManager.isAlive())
+        {
+            System.out.println("Selection: " + actionManager.GetSelection());
+        }
     }
 
     @Override
@@ -49,8 +54,18 @@ public class GameActivity extends AppCompatActivity {
         super.onDestroy();
 
         try {
-            animFindingGame.StopAnim();
-            animFindingGame.join();
+            if(animFindingGame != null && animFindingGame.isAlive())
+            {
+                animFindingGame.StopAnim();
+                animFindingGame.join();
+            }
+
+            if(actionManager != null && actionManager.isAlive())
+            {
+                actionManager.SetState(EStates.received);
+                actionManager.join();
+            }
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -65,12 +80,13 @@ public class GameActivity extends AppCompatActivity {
     }
 }
 
-class ActionManager
+class ActionManager extends State
 {
     private int selection;
 
     public ActionManager(ActivityGameBinding binding)
     {
+        start();
         ImageButton[] imgBtnArray = {binding.ibtnRock, binding.ibtnPaper, binding.ibtnScissors};
         for(int i = 0; i < imgBtnArray.length; i++)
             BindAction(imgBtnArray, i);
@@ -89,6 +105,14 @@ class ActionManager
             }
 
             imgBtnArray[i].setOnClickListener(null);
+            try {
+                SetState(EStates.received);
+                join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                selection = i;
+            }
         });
     }
 }
