@@ -70,8 +70,6 @@ public class GameActivity extends AppCompatActivity {
         animFindingGame = new AnimationThreads(binding.txtStatus);
         animFindingGame.start();
     }
-
-    private native String StartServer();
 }
 
 class GameManager

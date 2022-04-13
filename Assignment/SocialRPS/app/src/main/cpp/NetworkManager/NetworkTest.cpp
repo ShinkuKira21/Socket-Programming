@@ -18,7 +18,7 @@ Java_com_uwtsd_socialrps_GameManager_NetworkTest(JNIEnv *env, jobject thiz) {
         std::stringstream stream;
         std::string result;
 
-        char ip[] = "127.0.0.1";
+        char ip[] = "3.11.23.103";
         NetworkManager::INet4Address* serverAddress = new NetworkManager::INet4Address(ip, 13);
         // comment out next step if not on windows.
         /*WSDATA wsaData;

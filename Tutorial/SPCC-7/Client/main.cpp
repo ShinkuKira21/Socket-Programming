@@ -77,7 +77,7 @@ void WriteSize(int socket, int size)
 
 int main(int argc, char** argv)
 {
-    char const ip[] = "127.0.0.1";
+    char const ip[] = "18.135.100.206";
     INet4Address* serverAddress = new INet4Address(ip, 13);
 
     // comment out next step if not on windows.
