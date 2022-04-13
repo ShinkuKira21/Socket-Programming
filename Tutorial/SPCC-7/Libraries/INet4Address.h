@@ -11,16 +11,11 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-// Libs instead of DLLs
-#pragma comment(lib, "Ws2_32.lib")
-#pragma comment(lib, "Mwsock.lib")
-#pragma comment(lib, "AdvApi32.lib")
-
 class INet4Address
 {
 	public:
 		INet4Address();
-		INet4Address(char* add, int port);
+		INet4Address(const char* add, int port);
 		INet4Address(int port);
 
 		~INet4Address();

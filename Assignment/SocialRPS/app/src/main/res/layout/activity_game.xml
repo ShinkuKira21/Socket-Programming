@@ -57,13 +57,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="ibtnPaper,@+id/ibtnscissors,ibtnRock,txtCountdown"
+        app:constraint_referenced_ids="txtCountdown,ibtnPaper,ibtnScissors,ibtnRock"
         tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcviewChatbox"
-        android:layout_width="398dp"
-        android:layout_height="410dp"
+        android:layout_width="392dp"
+        android:layout_height="357dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbarChatbox"
@@ -135,6 +135,20 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
+        android:id="@+id/ibtnPaper"
+        android:layout_width="89dp"
+        android:layout_height="87dp"
+        android:background="@android:color/holo_blue_light"
+        android:contentDescription="@string/socialrps_accessibility_paper"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/swP1Status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage"
+        app:layout_constraintVertical_bias="0.775"
+        app:srcCompat="@drawable/paper" />
+
+    <ImageButton
         android:id="@+id/ibtnScissors"
         android:layout_width="89dp"
         android:layout_height="87dp"
@@ -147,7 +161,7 @@
         app:layout_constraintStart_toEndOf="@+id/ibtnPaper"
         app:layout_constraintTop_toTopOf="@+id/ibtnPaper"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/scizzors" />
+        app:srcCompat="@drawable/scissors" />
 
     <ImageButton
         android:id="@+id/ibtnRock"
@@ -164,33 +178,16 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rock" />
 
-    <ImageButton
-        android:id="@+id/ibtnPaper"
-        android:layout_width="89dp"
-        android:layout_height="87dp"
-        android:background="@android:color/holo_blue_light"
-        android:contentDescription="@string/socialrps_accessibility_paper"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/swP1Status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage"
-        app:layout_constraintVertical_bias="0.775"
-        app:srcCompat="@drawable/paper" />
-
     <TextView
         android:id="@+id/txtCountdown"
         android:layout_width="52dp"
         android:layout_height="80dp"
         android:text="3"
         android:textAlignment="center"
-        android:textColor="@color/material_dynamic_neutral0"
         android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/ibtnPaper"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

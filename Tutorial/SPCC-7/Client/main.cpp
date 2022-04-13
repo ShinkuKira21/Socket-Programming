@@ -77,8 +77,8 @@ void WriteSize(int socket, int size)
 
 int main(int argc, char** argv)
 {
-    const char ip[] = "127.0.0.1";
-    INet4Address* serverAddress = new INet4Address(ip, 50018);
+    char const ip[] = "127.0.0.1";
+    INet4Address* serverAddress = new INet4Address(ip, 13);
 
     // comment out next step if not on windows.
     /*WSDATA wsaData;
@@ -95,9 +95,11 @@ int main(int argc, char** argv)
         exit(-1);
     }
 
-    if(int errorCode = connect(sockfd, (sockaddr*)serverAddress->GetSockaddrRef(), (int)serverAddress->GetSocketAddressLengthVal()) < 0)
+    int errorCode;
+    if((errorCode = connect(sockfd, (sockaddr*)serverAddress->GetSockaddrRef(), (int)serverAddress->GetSocketAddressLengthVal())) < 0)
     {
         std::cout << "Bind failed: " << errorCode << std::endl;
+        perror("Err");
         exit(-1);
     }
 
@@ -114,5 +116,4 @@ int main(int argc, char** argv)
     delete[] incMessage;
 
     close(sockfd);
-
 }

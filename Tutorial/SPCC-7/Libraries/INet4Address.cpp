@@ -6,19 +6,17 @@ INet4Address::INet4Address()
 }
 
 
-INet4Address::INet4Address(char* add, int port)
+INet4Address::INet4Address(const char* add, int port)
 {
 	//Zero the entire address structure (use memset)
 	//Set the sin_family attribute to IPv4 (AF_INET)
 	//Set the port - remember host/network byte ordering
 	//Set the address - use presentation to network
 	//Set the length attribute (use sizeof)
-
 	memset(&address, 0, sizeof(address));
 	address.sin_family = AF_INET;
 	address.sin_port = htons(port);
-	inet_pton(address.sin_family, add, &address.sin_addr);
-
+	inet_pton(AF_INET, add, &address.sin_addr);
 	length = sizeof(address);
 }
 
@@ -29,15 +27,12 @@ INet4Address::INet4Address(int port)
 	memset(&address, 0, sizeof(address));
 	address.sin_family = AF_INET;
 	address.sin_port = htons(port);
-	address.sin_addr.s_addr = (u_long)"127.0.0.1";
+	address.sin_addr.s_addr = htonl(INADDR_ANY);
 	length = sizeof(address);
 }
 
 
-INet4Address::~INet4Address()
-{
-	//Nothing here :)
-}
+INet4Address::~INet4Address() { }
 
 sockaddr_in* INet4Address::GetSockaddrRef()
 {
@@ -62,7 +57,7 @@ void INet4Address::GetSocketAddress(char* cstr, int len)
 	//Address as a string - note, uses the cstr parameter.
 	//This should use the network to presentation call - cstr is the buffer, len is the length
 	//Don't overthink this - this function is likely only a single call to inet_ntop
-	inet_ntop(address.sin_family, &address.sin_addr, cstr, len);
+	inet_ntop(AF_INET, &address.sin_addr, cstr, len);
 }
 
 std::string INet4Address::GetSocketAddress()
@@ -74,15 +69,13 @@ std::string INet4Address::GetSocketAddress()
 	GetSocketAddress(cstr, INET_ADDRSTRLEN);
 
 	//Convert the character array to a std::string (can be done in the string's constructor) and return it
-	std::string str = cstr;
-
-	return str;
+	return std::string(cstr);
 }
 
 int INet4Address::GetPort()
 {
 	//Return the port.  Remember, convert to host byte order
-	return address.sin_port;
+	return ntohs(address.sin_port);
 }
 
 void INet4Address::Print()

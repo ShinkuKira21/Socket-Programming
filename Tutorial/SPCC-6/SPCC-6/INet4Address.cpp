@@ -82,7 +82,7 @@ std::string INet4Address::GetSocketAddress()
 int INet4Address::GetPort()
 {
 	//Return the port.  Remember, convert to host byte order
-	return address.sin_port;
+	return ntohs(address.sin_port);
 }
 
 void INet4Address::Print()

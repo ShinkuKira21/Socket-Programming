@@ -10,31 +10,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.uwtsd.socialrps.databinding.ActivityGameBinding;
 
 public class GameActivity extends AppCompatActivity {
-    // loads network manager
+    private Thread server;
+    private ActivityGameBinding binding;
+    private AnimationThreads animFindingGame;
+    GameManager gameManager;
+    private String playerName;
+
     static {
         System.loadLibrary("socialrps");
     }
-
-    private ActivityGameBinding binding;
-    private AnimationThreads animFindingGame;
-    ActionManager actionManager;
-    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
         binding = ActivityGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         playerName = getIntent().getExtras().get("socialrps.playerName").toString();
 
         //FindGame();
         // Binding setup for actions
-        actionManager = new ActionManager(binding);
-        while(actionManager.isAlive())
-        {
-            System.out.println("Selection: " + actionManager.GetSelection());
-        }
+        gameManager = new GameManager(binding, playerName);
     }
 
     @Override
@@ -60,14 +57,9 @@ public class GameActivity extends AppCompatActivity {
                 animFindingGame.join();
             }
 
-            if(actionManager != null && actionManager.isAlive())
-            {
-                actionManager.SetState(EStates.received);
-                actionManager.join();
-            }
-
         } catch (InterruptedException e) {
             e.printStackTrace();
+            animFindingGame.interrupt();
         }
     }
 
@@ -78,23 +70,31 @@ public class GameActivity extends AppCompatActivity {
         animFindingGame = new AnimationThreads(binding.txtStatus);
         animFindingGame.start();
     }
+
+    private native String StartServer();
 }
 
-class ActionManager extends State
+class GameManager
 {
+    private String playerName;
     private int selection;
 
-    public ActionManager(ActivityGameBinding binding)
+    static {
+        System.loadLibrary("socialrps");
+    }
+
+    public GameManager(ActivityGameBinding binding, String playerName)
     {
-        start();
+        this.playerName = playerName;
         ImageButton[] imgBtnArray = {binding.ibtnRock, binding.ibtnPaper, binding.ibtnScissors};
+
         for(int i = 0; i < imgBtnArray.length; i++)
             BindAction(imgBtnArray, i);
     }
 
     public int GetSelection()
     { return selection; }
-    
+
     private void BindAction(ImageButton[] imgBtnArray, int i)
     {
         imgBtnArray[i].setOnClickListener((View.OnClickListener) view -> {
@@ -105,14 +105,13 @@ class ActionManager extends State
             }
 
             imgBtnArray[i].setOnClickListener(null);
-            try {
-                SetState(EStates.received);
-                join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                selection = i;
-            }
+            selection = i;
+
+            System.out.println(PostAction(playerName, selection));
+            System.out.println(NetworkTest());
         });
     }
+
+    private native String PostAction(String playerName, int selection);
+    private native String NetworkTest();
 }

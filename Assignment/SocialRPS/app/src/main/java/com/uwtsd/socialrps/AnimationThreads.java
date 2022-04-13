@@ -26,7 +26,7 @@ public class AnimationThreads extends Thread {
                 join(25);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                StopAnim();
+                interrupt();
             } finally {
                 currentX = Limit(pos, currentX);
                 pos += currentX;

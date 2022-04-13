@@ -67,7 +67,7 @@ void WriteSize(int socket, int size)
 
 int main(int argc, char** argv)
 {
-    INet4Address serverAddress(31);
+    INet4Address serverAddress(13);
      // comment out next step if not on windows.
     /*WSDATA wsaData;
     if(int errorCode = WSAStartup(MAKEWORD(2,2), &wsaData) < 0)
@@ -97,6 +97,7 @@ int main(int argc, char** argv)
         exit(-1);
     }
 
+
     while(true)
     {
         int clientSock;
@@ -109,6 +110,7 @@ int main(int argc, char** argv)
         else {
             char buff[256];
             serverAddress.GetSocketAddress(buff, sizeof(buff));
+    
             std::cout << "Got connection from " << buff << ':' << serverAddress.GetPort() << std::endl;
 
             std::this_thread::sleep_for(std::chrono::seconds(10));
@@ -120,9 +122,9 @@ int main(int argc, char** argv)
                 WriteN(sockfd, sendString.c_str(), sendString.length());
             });
 
-
             t->join();  
             delete t;
+            break;
         }
     }
 

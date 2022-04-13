@@ -2,7 +2,7 @@
 
 INet4Address::INet4Address() { }
 
-INet4Address::INet4Address(const char* add, int port)
+INet4Address::INet4Address(char* const add, int port)
 {
 	memset(&address, 0, sizeof(address));
 	address.sin_family = AF_INET;

@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             animTitle.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            animTitle.interrupt();
         }
     }
 

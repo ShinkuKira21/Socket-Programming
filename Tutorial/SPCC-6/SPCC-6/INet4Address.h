@@ -1,9 +1,14 @@
 #pragma once
 
 //#include <winsock.h>
-#include <WS2tcpip.h>
+//#include <WS2tcpip.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <iostream>
 #include <string>
+#include <cstring>
 // Libs instead of DLLs
 #pragma comment(lib, "Ws2_32.lib")
 #pragma comment(lib, "Mwsock.lib")
