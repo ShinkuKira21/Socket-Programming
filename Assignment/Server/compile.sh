@@ -1,0 +1,1 @@
+g++ main.cpp ../Libraries/INet4Address.cpp NetworkTools/Connection.cpp NetworkTools/ConnectionInstance.cpp NetworkTools/ServerConnection.cpp -Wall -pthread

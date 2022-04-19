@@ -55,7 +55,7 @@ Java_com_uwtsd_socialrps_GameManager_NetworkTest(JNIEnv *env, jobject thiz) {
         cnt::ReadN(sockfd, incMessage, incMessageSize);
         incMessage[incMessageSize] = '\0';
 
-        stream << "incMessage: " << incMessage << std::endl;
+        stream << "incMessage: " << incMessage << "Here" << std::endl;
         result = stream.str();
 
         delete serverAddress;

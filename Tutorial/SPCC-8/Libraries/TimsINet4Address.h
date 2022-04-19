@@ -27,7 +27,7 @@ public:
 
 	//We may want to print the address and port
 	//pass in string length so we don't overfill the buffer
-	void GetSocketAddress(char* cstr, int len);
+	void GetSocketAddress(char* const cstr, int len);
 	std::string GetSocketAddress();
 
 	int GetPort();

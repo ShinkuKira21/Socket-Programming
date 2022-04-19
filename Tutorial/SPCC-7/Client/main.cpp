@@ -1,6 +1,7 @@
 #include "../Libraries/INet4Address.h"
 #include <unistd.h>
-
+#include <sstream>
+#include <thread>
 
 /*
     right click on project, properties, change configuration to All Configuration and All Platforms.
@@ -77,7 +78,7 @@ void WriteSize(int socket, int size)
 
 int main(int argc, char** argv)
 {
-    char const ip[] = "18.135.100.206";
+    char const ip[] = "3.11.23.103";
     INet4Address* serverAddress = new INet4Address(ip, 13);
 
     // comment out next step if not on windows.
@@ -96,6 +97,7 @@ int main(int argc, char** argv)
     }
 
     int errorCode;
+    std::cout << "Connecting to " << ip << std::endl;
     if((errorCode = connect(sockfd, (sockaddr*)serverAddress->GetSockaddrRef(), (int)serverAddress->GetSocketAddressLengthVal())) < 0)
     {
         std::cout << "Bind failed: " << errorCode << std::endl;
@@ -103,14 +105,18 @@ int main(int argc, char** argv)
         exit(-1);
     }
 
+    
+
     int incMessageSize = ReadSize(sockfd);
-    std::cout << incMessageSize << std::endl;
     char* incMessage = new char[incMessageSize + 1];
 
     ReadN(sockfd, incMessage, incMessageSize);
     incMessage[incMessageSize] = '\0';
 
-    std::cout << "incMessage: " << incMessage << std::endl;
+    std::stringstream message;
+    message << "incMessage: " << incMessage << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    std::cout << message.str();
 
     delete serverAddress;
     delete[] incMessage;

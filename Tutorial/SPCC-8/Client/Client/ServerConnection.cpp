@@ -45,6 +45,4 @@ void ServerConnection::StartServer(int backlog)
 	CreateSocket();
 	BindSocket();
 	ListenOnSocket(backlog);
-
-	
 }

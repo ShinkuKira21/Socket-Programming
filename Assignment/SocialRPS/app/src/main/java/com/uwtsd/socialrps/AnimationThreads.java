@@ -23,7 +23,7 @@ public class AnimationThreads extends Thread {
 
         while(bRunning) {
             try {
-                Thread.sleep(25);
+                sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 interrupt();
