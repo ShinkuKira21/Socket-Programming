@@ -277,7 +277,7 @@ void TicTacToeNetwork::HandleDisconnect(ConnectedPlayer* opponent)
 		{
 			ttt->SwapTurn();
 		}
-
+		
 		turnChange.notify_one();
 	}
 }

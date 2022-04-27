@@ -75,5 +75,5 @@ PlayerConnectionStatus ConnectedPlayer::GetConnectionStatus()
 
 void ConnectedPlayer::SetDisconnected()
 {
-	status = disconnected;
+status = disconnected;
 }

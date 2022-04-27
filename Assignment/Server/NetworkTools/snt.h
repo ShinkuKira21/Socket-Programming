@@ -1,7 +1,10 @@
+#pragma once
 #include "../../Libraries/INet4Address.h"
 
-namespace snt{
-    class Connection
+// server network tools
+namespace snt 
+{
+    class Connection 
     {
         protected:
             INet4Address* address;

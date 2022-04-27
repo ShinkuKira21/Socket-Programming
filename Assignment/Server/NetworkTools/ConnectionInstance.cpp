@@ -1,21 +1,15 @@
 #include "snt.h"
 
 snt::ConnectionInstance::ConnectionInstance(int sockfd)
-{
-    this->sockfd = sockfd;
-}
+{ this->sockfd = sockfd; }
 
 snt::ConnectionInstance::~ConnectionInstance() {}
 
 void snt::ConnectionInstance::SetSocket(int sock)
-{
-    this->sockfd = sock;
-}
+{ this->sockfd = sock; }
 
 int snt::ConnectionInstance::GetSocket()
-{
-    return sockfd;
-}
+{ return sockfd; }
 
 void snt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
 {
