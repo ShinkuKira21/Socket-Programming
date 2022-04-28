@@ -75,7 +75,7 @@ bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
 {
     if(players[0] == nullptr)
     {
-        players[1] = player;
+        players[0] = player;
         return true;
     }
     
@@ -90,4 +90,5 @@ bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
 }
 
 void RPS::RPSNetwork::InitialiseGame()
-{ rps = new RPS::RPSGameLogic(players); }
+{ rps = new RPS::RPSGameLogic(
+    players); }
