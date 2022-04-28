@@ -1,17 +1,17 @@
 #pragma once
+
 #include <string>
 
-class ConnectedPlayer;
-
 namespace RPS {
+    class ConnectedPlayer;
     class RPSGameLogic {
         private:
-            ConnectedPlayer* players[2];
+            ConnectedPlayer** players;
             std::string actions[2];
             int turns = 0;
 
         public:
-            RPSGameLogic(ConnectedPlayer* players[2]);
+            RPSGameLogic(ConnectedPlayer** players);
             ~RPSGameLogic();
 
             void Action(ConnectedPlayer* player, const char* action);

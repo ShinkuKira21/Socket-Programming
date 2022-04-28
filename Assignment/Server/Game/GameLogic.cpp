@@ -1,14 +1,14 @@
 #include "GameLogic.h"
+#include "RPSNetwork.h"
 
-RPS::RPSGameLogic::RPSGameLogic(ConnectedPlayer* players[2])
+RPS::RPSGameLogic::RPSGameLogic(RPS::ConnectedPlayer** players)
 { 
-    for(size_t i = 0; i < 2; i++)
-        this->players[i] = players[i];
+    this->players = players;
 }
 
 RPS::RPSGameLogic::~RPSGameLogic() { }
 
-void RPS::RPSGameLogic::Action(ConnectedPlayer* player, const char* action)
+void RPS::RPSGameLogic::Action(RPS::ConnectedPlayer* player, const char* action)
 {
     if(players[0] == player)
         this->actions[0] = action;
@@ -17,3 +17,6 @@ void RPS::RPSGameLogic::Action(ConnectedPlayer* player, const char* action)
 
 bool RPS::RPSGameLogic::CheckForMovesRemaining()
 { return false; }
+
+RPS::ConnectedPlayer* RPS::RPSGameLogic::CheckForVictory()
+{ return nullptr; }

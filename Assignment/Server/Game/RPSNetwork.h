@@ -41,7 +41,7 @@ namespace RPS
     {
         private:
             RPS::RPSGameLogic* rps;
-            ConnectedPlayer* players[2] = { nullptr, nullptr };
+            ConnectedPlayer* players[2];
 
             GamePhase state;
 
