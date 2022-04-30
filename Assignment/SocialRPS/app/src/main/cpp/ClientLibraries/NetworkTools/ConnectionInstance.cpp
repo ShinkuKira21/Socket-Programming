@@ -1,19 +1,22 @@
-#include "snt.h"
+//
+// Created by edwardpatch1 on 4/30/22.
+//
+#include "cnt.h"
 
 #include <unistd.h>
 
-snt::ConnectionInstance::ConnectionInstance(int sockfd)
+cnt::ConnectionInstance::ConnectionInstance(int sockfd)
 { this->sockfd = sockfd; }
 
-snt::ConnectionInstance::~ConnectionInstance() {}
+cnt::ConnectionInstance::~ConnectionInstance() {}
 
-void snt::ConnectionInstance::SetSocket(int sock)
+void cnt::ConnectionInstance::SetSocket(int sock)
 { this->sockfd = sock; }
 
-int snt::ConnectionInstance::GetSocket()
+int cnt::ConnectionInstance::GetSocket()
 { return sockfd; }
 
-void snt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
+void cnt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
 {
     int nleft = bytesToWrite;
     int nwritten;
@@ -37,7 +40,7 @@ void snt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
     if(nleft != 0) throw nleft;
 }
 
-void snt::ConnectionInstance::ReadN(char* data, size_t bytesToRead)
+void cnt::ConnectionInstance::ReadN(char* data, size_t bytesToRead)
 {
     int nleft = bytesToRead;
     int nread;
@@ -57,20 +60,20 @@ void snt::ConnectionInstance::ReadN(char* data, size_t bytesToRead)
     }
 }
 
-void snt::ConnectionInstance::SendInt(int value)
+void cnt::ConnectionInstance::SendInt(int value)
 {
     value = htonl(value);
     char* toSend = (char*)&value;
     WriteN(toSend, int(sizeof(value)));
 }
 
-void snt::ConnectionInstance::SendString(const char* str)
+void cnt::ConnectionInstance::SendString(const char* str)
 {
     SendInt(strlen(str));
     WriteN(str, strlen(str));
 }
 
-int snt::ConnectionInstance::RecieveInt()
+int cnt::ConnectionInstance::RecieveInt()
 {
     int value = 0;
     char* recvBuffer = (char*)&value;
@@ -79,7 +82,7 @@ int snt::ConnectionInstance::RecieveInt()
     return ntohl(value);
 }
 
-std::string snt::ConnectionInstance::RecieveString()
+std::string cnt::ConnectionInstance::RecieveString()
 {
     size_t msgSize = RecieveInt();
     char* msg = new char[msgSize + 1];
@@ -91,5 +94,5 @@ std::string snt::ConnectionInstance::RecieveString()
     return finalMSG;
 }
 
-void snt::ConnectionInstance::Disconnect()
+void cnt::ConnectionInstance::Disconnect()
 { close(sockfd); }

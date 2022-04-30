@@ -1,0 +1,4 @@
+/opt/JBCLion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/JBCLion/bin/ninja/linux/ninja -G Ninja -S "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server" -B "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/cmake-build-debug"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/cmake-build-debug

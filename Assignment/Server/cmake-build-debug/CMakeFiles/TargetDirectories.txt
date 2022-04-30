@@ -1,0 +1,3 @@
+/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/cmake-build-debug/CMakeFiles/Server.dir
+/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/cmake-build-debug/CMakeFiles/rebuild_cache.dir

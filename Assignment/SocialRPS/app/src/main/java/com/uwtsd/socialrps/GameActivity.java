@@ -106,10 +106,8 @@ class GameManager
             selection = i;
 
             System.out.println(PostAction(playerName, selection));
-            System.out.println(NetworkTest());
         });
     }
 
     private native String PostAction(String playerName, int selection);
-    private native String NetworkTest();
 }

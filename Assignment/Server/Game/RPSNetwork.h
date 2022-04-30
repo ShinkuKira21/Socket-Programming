@@ -4,6 +4,7 @@
 #include "GameLogic.h"
 #include <thread>
 
+// Refactor these enums
 enum GamePhase {
         Playing,
         Finished

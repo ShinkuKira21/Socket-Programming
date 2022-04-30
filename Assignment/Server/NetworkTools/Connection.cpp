@@ -1,9 +1,7 @@
 #include "snt.h"
 
 snt::Connection::Connection(INet4Address* address)
-{
-    this->address = address;
-}
+{ this->address = address; }
 
 snt::Connection::~Connection() {}
 

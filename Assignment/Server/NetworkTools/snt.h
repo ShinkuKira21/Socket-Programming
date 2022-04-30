@@ -39,6 +39,9 @@ namespace snt
             // Receivers
             int RecieveInt();
             std::string RecieveString();
+
+            // Disconnection
+            void Disconnect();
     };
 
     class ServerConnection : public Connection {

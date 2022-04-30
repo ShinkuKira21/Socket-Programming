@@ -14,12 +14,18 @@ project("socialrps")
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+add_library(
+        clientlibraries
+        SHARED
+        NetworkManager/INet4Address.cpp ClientLibraries/NetworkTools/Connection.cpp ClientLibraries/NetworkTools/ConnectionInstance.cpp ClientLibraries/NetworkTools/ClientConnection.cpp ClientLibraries/MessageTools/StateHandler.cpp ClientLibraries/MessageTools/Messages/AcceptMessage.cpp ClientLibraries/MessageTools/Messages/ActionMessage.cpp ClientLibraries/MessageTools/Messages/ConnectMessage.cpp ClientLibraries/MessageTools/Messages/DisconnectMessage.cpp ClientLibraries/MessageTools/Messages/RefuseMessage.cpp ClientLibraries/MessageTools/Messages/UpdateMessage.cpp
+)
+
 add_library( # Sets the name of the library.
         socialrps
         # Sets the library as a shared library.
         SHARED
         # Provides a relative path to your source file(s).
-        native-lib.cpp GameActivity/GameActivity.cpp NetworkManager/INet4Address.cpp NetworkManager/NetworkTest.cpp)
+        native-lib.cpp GameActivity/GameActivity.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -29,7 +35,6 @@ add_library( # Sets the name of the library.
 
 find_library( # Sets the name of the path variable.
         log-lib
-
         # Specifies the name of the NDK library that
         # you want CMake to locate.
         log)
@@ -39,7 +44,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        socialrps
+        socialrps clientlibraries
         # Links the target library to the log library
         # included in the NDKs.
         ${log-lib})
