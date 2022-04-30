@@ -55,7 +55,6 @@ namespace RPS
             bool AddPlayer(ConnectedPlayer* player);
 
         private:
-            void HandleDisconnect(ConnectedPlayer* opponent);
             void InitialiseGame();
     };
 }

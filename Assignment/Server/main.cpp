@@ -79,6 +79,4 @@ int main(int argc, char** argv)
         snt::ConnectionInstance* ci = server->AcceptClient();
         std::thread(ClientHandler, ci).detach();
     }
-
-    system("PAUSE");
 }

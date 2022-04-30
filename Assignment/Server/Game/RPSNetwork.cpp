@@ -24,36 +24,41 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
 
     while(winner == nullptr && rps->CheckForMovesRemaining())
     {
-        smt::StateHandler* state = tPlayer->GetNetworkState();
-
-        if(state == nullptr || state->GetState() == smt::disconnect)
+        while(true)
         {
-            tPlayer->SetDisconnected();
-            HandleDisconnect(opponent);
-            return;
-        }
+            smt::StateHandler* state = tPlayer->GetNetworkState();
 
-        // Invalid Message
-        else if(state->GetState() == smt::update)
-            tPlayer->SendNetworkState(new smt::RefuseMessage("Err30"));
-
-        else 
-        {
-            if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
+            if(state == nullptr || state->GetState() == smt::disconnect)
             {
                 tPlayer->SetDisconnected();
-                tPlayer->SendNetworkState(new smt::DisconnectMessage("Err31"));
                 return;
             }
 
-            if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
+                // Invalid Message
+            else if(state->GetState() == smt::update)
+                tPlayer->SendNetworkState(new smt::RefuseMessage("Err30"));
+
+            else
             {
-                tPlayer->SetDisconnected();
-                tPlayer->SendNetworkState(new smt::DisconnectMessage("Err32"));
-                return;
+                if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
+                {
+                    tPlayer->SetDisconnected();
+                    tPlayer->SendNetworkState(new smt::DisconnectMessage("Err31"));
+                    return;
+                }
+
+                if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
+                {
+                    tPlayer->SetDisconnected();
+                    tPlayer->SendNetworkState(new smt::DisconnectMessage("Err32"));
+                    return;
+                }
+
+                break;
             }
         }
 
+        // displays the end game state
         bool bVictory = false;
         while(!bVictory)
         {
@@ -61,8 +66,7 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
 
             if(state->GetState() == smt::action)
             {
-               // rps->Action(tPlayer, ((smt::ActionMessage*)state)->GetMessage().c_str());
-                
+                rps->Action(tPlayer, ((smt::ActionMessage*)state)->GetMessage().c_str());
             }
         }
     }

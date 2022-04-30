@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace RPS {
     class ConnectedPlayer;
@@ -8,14 +9,18 @@ namespace RPS {
         private:
             ConnectedPlayer** players;
             std::string actions[2];
-            int turns = 0;
+            // wins = { 0 = p1, 1 = p2, 2 = draw }
+            std::vector<int> wins;
+            int turns = 3;
 
         public:
             RPSGameLogic(ConnectedPlayer** players);
             ~RPSGameLogic();
 
             void Action(ConnectedPlayer* player, const char* action);
-            bool CheckForMovesRemaining();
-            ConnectedPlayer* CheckForVictory();
+            size_t CheckForMovesRemaining();
+
+            bool CheckForVictory();
+            ConnectedPlayer* GetVictory();
     };
 }
