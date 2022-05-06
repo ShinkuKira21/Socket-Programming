@@ -163,6 +163,13 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/scissors" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpRPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="grpActions,grpChatbox" />
+
     <ImageButton
         android:id="@+id/ibtnRock"
         android:layout_width="89dp"
@@ -187,7 +194,9 @@
         android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/ibtnPaper"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/txtbxChatboxMessage"
+        app:layout_constraintVertical_bias="0.897" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
