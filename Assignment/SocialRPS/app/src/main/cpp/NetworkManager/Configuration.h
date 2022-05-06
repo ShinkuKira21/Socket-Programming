@@ -1,0 +1,8 @@
+//
+// Created by skira21 on 5/6/22.
+//
+
+#ifndef SOCIALRPS_CONFIGURATION_H
+#define SOCIALRPS_CONFIGURATION_H
+
+#endif //SOCIALRPS_CONFIGURATION_H
