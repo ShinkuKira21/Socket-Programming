@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/../Libraries" -I"/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/Game" -I"/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/Lobby" -I"/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/MessageTools" -I"/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/MessageTools/Messages" -I"/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/NetworkTools"
+CXX_INCLUDES = -I"/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/../Libraries" -I"/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/Game" -I"/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/Lobby" -I"/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/MessageTools" -I"/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/MessageTools/Messages" -I"/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/NetworkTools"
 
 CXX_FLAGS = -pthread -g -std=gnu++17
 

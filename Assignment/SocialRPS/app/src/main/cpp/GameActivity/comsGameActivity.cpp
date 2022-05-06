@@ -19,7 +19,6 @@ Java_com_uwtsd_socialrps_GameActivity_InitiateConnectionInstance(JNIEnv *env, jo
     delete[] finalIP;
 
     cnt::ClientConnection* serverConnection = new cnt::ClientConnection(&address);
-
     cnt::ConnectionInstance* cInstance = serverConnection->ConnectToServer();
 
     delete serverConnection;

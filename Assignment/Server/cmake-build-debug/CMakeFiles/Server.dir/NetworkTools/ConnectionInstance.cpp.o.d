@@ -1,8 +1,8 @@
 CMakeFiles/Server.dir/NetworkTools/ConnectionInstance.cpp.o: \
- /home/skira21/University\ of\ Wales\ Trinity\ St.\ Davids/Socket-Programming/Assignment/Server/NetworkTools/ConnectionInstance.cpp \
+ /home/edwardpatch1/University\ of\ Wales\ Trinity\ St\ Davids/Socket\ Programming/Assignment/Server/NetworkTools/ConnectionInstance.cpp \
  /usr/include/stdc-predef.h \
- /home/skira21/University\ of\ Wales\ Trinity\ St.\ Davids/Socket-Programming/Assignment/Server/NetworkTools/snt.h \
- /home/skira21/University\ of\ Wales\ Trinity\ St.\ Davids/Socket-Programming/Assignment/Server/NetworkTools/../../Libraries/INet4Address.h \
+ /home/edwardpatch1/University\ of\ Wales\ Trinity\ St\ Davids/Socket\ Programming/Assignment/Server/NetworkTools/snt.h \
+ /home/edwardpatch1/University\ of\ Wales\ Trinity\ St\ Davids/Socket\ Programming/Assignment/Server/NetworkTools/../../Libraries/INet4Address.h \
  /usr/include/c++/10/iostream \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \

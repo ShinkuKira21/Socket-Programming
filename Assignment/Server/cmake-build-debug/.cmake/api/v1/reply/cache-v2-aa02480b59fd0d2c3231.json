@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug"
+			"value" : "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-j16"
+			"value" : "-j8"
 		},
 		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
@@ -679,7 +679,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server"
+			"value" : "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1187,7 +1187,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr/bin/uname"
+			"value" : "/bin/uname"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
@@ -1235,7 +1235,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/sbin/sysctl"
+			"value" : "/sbin/sysctl"
 		},
 		{
 			"name" : "Server_BINARY_DIR",
@@ -1247,7 +1247,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug"
+			"value" : "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/cmake-build-debug"
 		},
 		{
 			"name" : "Server_IS_TOP_LEVEL",
@@ -1271,7 +1271,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server"
+			"value" : "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server"
 		}
 	],
 	"kind" : "cache",

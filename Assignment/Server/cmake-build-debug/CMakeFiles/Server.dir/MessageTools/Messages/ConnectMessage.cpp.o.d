@@ -1,8 +1,8 @@
 CMakeFiles/Server.dir/MessageTools/Messages/ConnectMessage.cpp.o: \
- /home/skira21/University\ of\ Wales\ Trinity\ St.\ Davids/Socket-Programming/Assignment/Server/MessageTools/Messages/ConnectMessage.cpp \
+ /home/edwardpatch1/University\ of\ Wales\ Trinity\ St\ Davids/Socket\ Programming/Assignment/Server/MessageTools/Messages/ConnectMessage.cpp \
  /usr/include/stdc-predef.h \
- /home/skira21/University\ of\ Wales\ Trinity\ St.\ Davids/Socket-Programming/Assignment/Server/MessageTools/Messages/messages.h \
- /home/skira21/University\ of\ Wales\ Trinity\ St.\ Davids/Socket-Programming/Assignment/Server/MessageTools/Messages/../smt.h \
+ /home/edwardpatch1/University\ of\ Wales\ Trinity\ St\ Davids/Socket\ Programming/Assignment/Server/MessageTools/Messages/messages.h \
+ /home/edwardpatch1/University\ of\ Wales\ Trinity\ St\ Davids/Socket\ Programming/Assignment/Server/MessageTools/Messages/../smt.h \
  /usr/include/c++/10/limits \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \

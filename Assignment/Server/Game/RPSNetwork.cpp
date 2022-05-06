@@ -8,7 +8,7 @@ RPS::RPSNetwork::~RPSNetwork()
 
 void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
 {
-    ConnectedPlayer* winner, *opponent;
+    ConnectedPlayer* winner = nullptr, *opponent;
 
     while(players[0] == nullptr || players[1] == nullptr)
         std::this_thread::sleep_for(std::chrono::milliseconds(100));

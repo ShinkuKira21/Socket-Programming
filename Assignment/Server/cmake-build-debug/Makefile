@@ -57,10 +57,10 @@ RM = /opt/JBCLion/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server"
+CMAKE_SOURCE_DIR = "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug/CMakeFiles" "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/cmake-build-debug/CMakeFiles" "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/edwardpatch1/University of Wales Trinity St Davids/Socket Programming/Assignment/Server/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -465,29 +465,29 @@ NetworkTools/ServerConnection.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/NetworkTools/ServerConnection.cpp.s
 .PHONY : NetworkTools/ServerConnection.cpp.s
 
-home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.o: home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.o
-.PHONY : home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.o
+home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.o: home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.o
+.PHONY : home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.o
 
 # target to build an object file
-home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.o
-.PHONY : home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.o
+home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.o
+.PHONY : home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.o
 
-home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.i: home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.i
-.PHONY : home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.i
+home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.i: home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.i
+.PHONY : home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.i
 
 # target to preprocess a source file
-home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.i
-.PHONY : home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.i
+home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.i
+.PHONY : home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.i
 
-home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.s: home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.s
-.PHONY : home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.s
+home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.s: home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.s
+.PHONY : home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.s
 
 # target to generate assembly for a file
-home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.s
-.PHONY : home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp.s
+home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.s
+.PHONY : home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -564,9 +564,9 @@ help:
 	@echo "... NetworkTools/ServerConnection.o"
 	@echo "... NetworkTools/ServerConnection.i"
 	@echo "... NetworkTools/ServerConnection.s"
-	@echo "... home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.o"
-	@echo "... home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.i"
-	@echo "... home/skira21/University_of_Wales_Trinity_St._Davids/Socket-Programming/Assignment/Libraries/INet4Address.s"
+	@echo "... home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.o"
+	@echo "... home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.i"
+	@echo "... home/edwardpatch1/University_of_Wales_Trinity_St_Davids/Socket_Programming/Assignment/Libraries/INet4Address.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
