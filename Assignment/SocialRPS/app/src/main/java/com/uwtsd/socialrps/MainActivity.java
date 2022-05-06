@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
             else binding.txtError.setText(R.string.socialrps_name_empty);
-
         });
     }
 

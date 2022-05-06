@@ -80,6 +80,8 @@ public class GameActivity extends AppCompatActivity {
 
         cInstance = InitiateConnectionInstance(INET4ADDRESS.ip, INET4ADDRESS.port, playerName);
 
+        System.out.println(cInstance);
+
     }
 
     private native long InitiateConnectionInstance(String ip, int port, String username);
