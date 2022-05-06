@@ -11,6 +11,8 @@ GameActivity::GameActivity::GameActivity(cnt::ConnectionInstance* cInstance, Cli
     this->clientInfo = clientInfo;
 }
 
+GameActivity::GameActivity::~GameActivity() { delete cInstance; }
+
 bool GameActivity::GameActivity::RegisterGame() {
     while(true)
     {
@@ -21,9 +23,7 @@ bool GameActivity::GameActivity::RegisterGame() {
         delete connectMessage;
 
         smt::StateHandler* state = GetNetworkMessage();
-
-        if(state == nullptr)
-            return false;
+        if(state == nullptr) return false;
 
         switch(state->GetState())
         {

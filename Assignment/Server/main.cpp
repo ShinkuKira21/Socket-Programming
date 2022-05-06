@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../Libraries/INet4Address.h"
 
 #include "NetworkTools/snt.h"
@@ -69,14 +70,15 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
 int main(int argc, char** argv)
 {
-    INet4Address* address = new INet4Address(50018);
-    snt::ServerConnection* server = new snt::ServerConnection(address);
+    INet4Address address(50018);
+    snt::ServerConnection server(&address);
 
-    server->StartServer(100);
+    server.StartServer(100);
 
+    // create another thread to ask user.
     while(true)
     {
-        snt::ConnectionInstance* ci = server->AcceptClient();
+        snt::ConnectionInstance* ci = server.AcceptClient();
         std::thread(ClientHandler, ci).detach();
     }
 }

@@ -5,31 +5,44 @@
 #include <jni.h>
 #include "GameActivity.h"
 #include "../NetworkManager/INet4Address.h"
+#include "../NetworkManager/Configuration.h"
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_uwtsd_socialrps_GameActivity_InitiateConnectionInstance(JNIEnv *env, jobject thiz, jstring ip, int port, jstring username) {
-    // TODO: implement PostAction()
-    const char* cIP = env->GetStringUTFChars(ip, NULL);
-
-    char* finalIP = new char[env->GetStringUTFLength(ip)];
-    strcpy(finalIP, cIP);
-
-    NetworkManager::INet4Address address(finalIP, port);
-    delete[] finalIP;
+Java_com_uwtsd_socialrps_GameActivity_InitiateGameActivity(JNIEnv *env, jobject thiz, jstring username) {
+    // TODO: implement InitiateGameActivity
+    NetworkManager::INet4Address address(NetworkManager::ServerConfiguration::ip, NetworkManager::ServerConfiguration::port);
 
     cnt::ClientConnection* serverConnection = new cnt::ClientConnection(&address);
     cnt::ConnectionInstance* cInstance = serverConnection->ConnectToServer();
 
+    if(cInstance == nullptr)
+    {
+        delete serverConnection;
+        delete cInstance;
+
+        return 0;
+    }
+
+    GameActivity::GameActivity* gameActivity = new GameActivity::GameActivity(cInstance, {env->GetStringUTFChars(username, 0)});
+
     delete serverConnection;
-    return (jlong)cInstance;
+    return (jlong) gameActivity;
 }
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_uwtsd_socialrps_GameActivity_DeconstructConnectionInstance(JNIEnv *env, jobject thiz,
-                                                                    jlong c_instance) {
-    // TODO: implement DeconstructConnectionInstance()
-    cnt::ConnectionInstance* cInstance = (cnt::ConnectionInstance*) cInstance;
-    delete cInstance;
+Java_com_uwtsd_socialrps_GameActivity_DeconstructGameActivity(JNIEnv *env, jobject thiz,
+                                                                    jlong gameActivity) {
+    // TODO: implement DeconstructGameActivity()
+    GameActivity::GameActivity* cGameActivity = (GameActivity::GameActivity*)gameActivity;
+    if(cGameActivity != nullptr)
+        delete cGameActivity;
+}
+extern "C"
+JNIEXPORT int JNICALL
+Java_com_uwtsd_socialrps_GameActivity_JoinGame(JNIEnv *env, jobject thiz, jlong gameActivity) {
+    // TODO: implement JoinGame()
+    GameActivity::GameActivity* gameActivityInstance = (GameActivity::GameActivity*)gameActivity;
+    return gameActivityInstance->RegisterGame();
 }

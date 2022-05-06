@@ -19,9 +19,9 @@ namespace cnt
 
         public:
             Connection(NetworkManager::INet4Address* address);
-            ~Connection();
+            virtual ~Connection();
 
-            void InitialiseSocket();
+            bool InitialiseSocket();
     };
 
     class ConnectionInstance
@@ -57,7 +57,7 @@ namespace cnt
             ClientConnection(NetworkManager::INet4Address* address);
             ~ClientConnection();
 
-            void BindConnection();
+            int BindConnection();
             ConnectionInstance* ConnectToServer();
     };
 }

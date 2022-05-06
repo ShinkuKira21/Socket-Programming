@@ -9,18 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.uwtsd.socialrps.databinding.ActivityGameBinding;
 
-interface INET4ADDRESS {
-    String ip = "3.11.23.103";
-    int port = 50018;
-}
-
 public class GameActivity extends AppCompatActivity {
     private ActivityGameBinding binding;
     private AnimationThreads animFindingGame;
     GameManager gameManager;
     private String playerName;
 
-    private long cInstance;
+    private long gameActivity;
 
     static {
         System.loadLibrary("socialrps");
@@ -35,7 +30,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         playerName = getIntent().getExtras().get("socialrps.playerName").toString();
 
-        //FindGame();
+        FindGame();
         // Binding setup for actions
         gameManager = new GameManager(binding, playerName);
     }
@@ -68,7 +63,7 @@ public class GameActivity extends AppCompatActivity {
             animFindingGame.interrupt();
         }
 
-        DeconstructConnectionInstance(cInstance);
+        DeconstructGameActivity(gameActivity);
     }
 
     private void FindGame()
@@ -78,14 +73,18 @@ public class GameActivity extends AppCompatActivity {
         animFindingGame = new AnimationThreads(binding.txtStatus);
         animFindingGame.start();
 
-        cInstance = InitiateConnectionInstance(INET4ADDRESS.ip, INET4ADDRESS.port, playerName);
-
-        System.out.println(cInstance);
-
+        gameActivity = InitiateGameActivity(playerName);
+        int status = JoinGame(gameActivity);
+        if(status <= 0) {
+            System.out.println("Error!");
+            onBackPressed();
+        }
+        System.out.println(status);
     }
 
-    private native long InitiateConnectionInstance(String ip, int port, String username);
-    private native void DeconstructConnectionInstance(long cInstance);
+    private native long InitiateGameActivity(String username);
+    private native int JoinGame(long gameActivity);
+    private native void DeconstructGameActivity(long gameActivity);
 }
 
 class GameManager

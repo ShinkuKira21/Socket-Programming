@@ -9,17 +9,18 @@ cnt::ClientConnection::ClientConnection(NetworkManager::INet4Address* address) :
 
 cnt::ClientConnection::~ClientConnection() { }
 
-void cnt::ClientConnection::BindConnection()
+int cnt::ClientConnection::BindConnection()
 {
     int errorCode;
     if((errorCode = bind(sockfd, (sockaddr*)address->GetSockaddrRef(), (int)address->GetSocketAddressLengthVal())) < 0)
-        throw "Binding Socket Failed";
+        perror("Binding Socket Failed");
+
+    return errorCode;
 }
 
 cnt::ConnectionInstance* cnt::ClientConnection::ConnectToServer()
 {
-    InitialiseSocket();
-    BindConnection();
-
+    if(InitialiseSocket() == false) return nullptr;
+    if(BindConnection() == false) return nullptr;
     return new cnt::ConnectionInstance(sockfd);
 }

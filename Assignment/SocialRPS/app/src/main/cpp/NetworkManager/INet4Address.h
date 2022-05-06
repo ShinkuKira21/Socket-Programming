@@ -14,7 +14,7 @@ namespace NetworkManager {
     class INet4Address {
         public:
             INet4Address();
-            INet4Address(char* const add, int port);
+            INet4Address(char* add, int port);
             INet4Address(int port);
 
             ~INet4Address();
@@ -28,7 +28,7 @@ namespace NetworkManager {
 
             //We may want to print the address and port
             //pass in string length so we don't overfill the buffer
-            void GetSocketAddress(char*, int len);
+            void GetSocketAddress(char* const, int len);
             std::string GetSocketAddress();
 
             int GetPort();
