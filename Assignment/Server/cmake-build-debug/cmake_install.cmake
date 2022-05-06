@@ -1,4 +1,4 @@
-# Install script for directory: /home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server
+# Install script for directory: /home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

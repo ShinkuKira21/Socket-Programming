@@ -5,7 +5,7 @@ smt::ActionMessage::ActionMessage()
 
 smt::ActionMessage::ActionMessage(const char* msg)
 {
-    state = accept;
+    state = action;
     this->msg = msg;
 }
 

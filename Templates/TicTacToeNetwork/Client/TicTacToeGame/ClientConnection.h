@@ -9,6 +9,6 @@ public:
 	~ClientConnection();
 
 	void BindConnection();
-	ConnectionInstance* ConnectToServer();
+	ConnectionInstance* ConnectTooverrideServer();
 };
 

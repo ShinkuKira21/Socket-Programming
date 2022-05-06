@@ -82,27 +82,27 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/../Libraries"
+					"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/../Libraries"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/Game"
+					"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/Game"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/Lobby"
+					"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/Lobby"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/MessageTools"
+					"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/MessageTools"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/MessageTools/Messages"
+					"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/MessageTools/Messages"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Server/NetworkTools"
+					"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Server/NetworkTools"
 				}
 			],
 			"language" : "CXX",
@@ -188,7 +188,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "/home/edwardpatch1/Projects/University Wales Trinity St Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp",
+			"path" : "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Assignment/Libraries/INet4Address.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

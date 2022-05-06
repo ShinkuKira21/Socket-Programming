@@ -9,12 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.uwtsd.socialrps.databinding.ActivityGameBinding;
 
+interface INET4ADDRESS {
+    String ip = "3.11.23.103";
+    int port = 50018;
+}
+
 public class GameActivity extends AppCompatActivity {
-    private Thread server;
     private ActivityGameBinding binding;
     private AnimationThreads animFindingGame;
     GameManager gameManager;
     private String playerName;
+
+    private long cInstance;
 
     static {
         System.loadLibrary("socialrps");
@@ -61,6 +67,8 @@ public class GameActivity extends AppCompatActivity {
             e.printStackTrace();
             animFindingGame.interrupt();
         }
+
+        DeconstructConnectionInstance(cInstance);
     }
 
     private void FindGame()
@@ -69,17 +77,19 @@ public class GameActivity extends AppCompatActivity {
         binding.linlayLoad.setVisibility(View.VISIBLE);
         animFindingGame = new AnimationThreads(binding.txtStatus);
         animFindingGame.start();
+
+        cInstance = InitiateConnectionInstance(INET4ADDRESS.ip, INET4ADDRESS.port, playerName);
+
     }
+
+    private native long InitiateConnectionInstance(String ip, int port, String username);
+    private native void DeconstructConnectionInstance(long cInstance);
 }
 
 class GameManager
 {
     private String playerName;
     private int selection;
-
-    static {
-        System.loadLibrary("socialrps");
-    }
 
     public GameManager(ActivityGameBinding binding, String playerName)
     {
@@ -104,10 +114,6 @@ class GameManager
 
             imgBtnArray[i].setOnClickListener(null);
             selection = i;
-
-            System.out.println(PostAction(playerName, selection));
         });
     }
-
-    private native String PostAction(String playerName, int selection);
 }

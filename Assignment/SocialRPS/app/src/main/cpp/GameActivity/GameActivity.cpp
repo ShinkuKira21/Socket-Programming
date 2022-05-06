@@ -3,20 +3,69 @@
 //
 
 #include "GameActivity.h"
-#include <jni.h>
+#include "../ClientLibraries/MessageTools/Messages/messages.h"
 
-extern "C"
-JNIEXPORT jstring JNICALL
-Java_com_uwtsd_socialrps_GameManager_PostAction(JNIEnv *env, jobject thiz, jstring player_name,
-                                                jint selection) {
-    // TODO: implement PostAction()
-    const char* playerName = env->GetStringUTFChars(player_name, 0);
-    GameActivity::GameActivity gameActivity({playerName, (int)selection});
-    // return the server response
-
-    return env->NewStringUTF("Server Response:");
+GameActivity::GameActivity::GameActivity(cnt::ConnectionInstance* cInstance, ClientStructure clientInfo)
+{
+    this->cInstance = cInstance;
+    this->clientInfo = clientInfo;
 }
 
-GameActivity::GameActivity::GameActivity(ClientStructure clientInfo) {
-    this->clientInfo = clientInfo;
+bool GameActivity::GameActivity::RegisterGame() {
+    while(true)
+    {
+        smt::ConnectMessage* connectMessage = new smt::ConnectMessage();
+        connectMessage->SetUsername(clientInfo.playerName);
+
+        SendNetworkMessage(connectMessage);
+        delete connectMessage;
+
+        smt::StateHandler* state = GetNetworkMessage();
+
+        if(state == nullptr)
+            return false;
+
+        switch(state->GetState())
+        {
+            case smt::EState::accept:
+                delete state;
+                return true;
+
+            default:
+                delete state;
+                break;
+        }
+        break;
+    }
+
+    return false;
+}
+
+bool GameActivity::GameActivity::SendNetworkMessage(smt::StateHandler* state) {
+    try {
+        cInstance->SendString(state->Serialise().c_str());
+    } catch (...)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+smt::StateHandler* GameActivity::GameActivity::GetNetworkMessage() {
+    try {
+        std::string msg = cInstance->RecieveString();
+        return smt::StateHandler::Unserialise(msg.c_str());
+    } catch (...)
+    {
+        return nullptr;
+    }
+}
+
+bool GameActivity::GameActivity::RequestUpdate() {
+    
+}
+
+std::string GameActivity::GameActivity::MakeMove() {
+    return std::string();
 }

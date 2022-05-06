@@ -5,20 +5,31 @@
 #ifndef SOCIALRPS_GAMEACTIVITY_H
 #define SOCIALRPS_GAMEACTIVITY_H
 
-#include <iostream>
+#include "../ClientLibraries/NetworkTools/cnt.h"
+#include "../ClientLibraries/MessageTools/smt.h"
 
 namespace GameActivity {
     struct ClientStructure {
         const char* playerName;
-        int action;
     };
 
     class GameActivity {
-        ClientStructure clientInfo;
+            ClientStructure clientInfo;
+            cnt::ConnectionInstance* cInstance;
 
-        public:
-            GameActivity(ClientStructure clientInfo);
-    };
+            public:
+                GameActivity(cnt::ConnectionInstance* cInstance, ClientStructure clientInfo);
+                ~GameActivity();
+
+                bool RegisterGame();
+                bool RequestUpdate();
+
+                std::string MakeMove();
+
+            private:
+                bool SendNetworkMessage(smt::StateHandler* state);
+                smt::StateHandler* GetNetworkMessage();
+        };
 }
 
 #endif //SOCIALRPS_GAMEACTIVITY_H

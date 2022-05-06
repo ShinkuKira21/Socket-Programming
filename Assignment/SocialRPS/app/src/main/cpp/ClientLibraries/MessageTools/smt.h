@@ -25,25 +25,25 @@ namespace smt
 
     class StateHandler
     {
-    protected:
-        EState state;
+        protected:
+            EState state;
 
-    public:
-        StateHandler();
-        virtual ~StateHandler();
+        public:
+            StateHandler();
+            virtual ~StateHandler();
 
-        std::string Serialise();
-        virtual void Serialise(std::ostream& os);
+            std::string Serialise();
+            virtual void Serialise(std::ostream& os);
 
-        static StateHandler* Unserialise(std::istream& is);
-        static StateHandler* Unserialise(const char* msg);
+            static StateHandler* Unserialise(std::istream& is);
+            static StateHandler* Unserialise(const char* msg);
 
-        virtual void UnserialiseState(std::istream& is) = 0;
+            virtual void UnserialiseState(std::istream& is) = 0;
 
-        void SetState(EState state);
-        EState GetState();
+            void SetState(EState state);
+            EState GetState();
 
-        std::string GetStringFromStream(std::istream& is);
+            std::string GetStringFromStream(std::istream& is);
     };
 }
 #endif //SOCIALRPS_SMT_H

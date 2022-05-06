@@ -22,6 +22,5 @@ namespace RPS {
 
             bool CheckForVictory();
             ConnectedPlayer* GetVictory();
-    }
-
+    };
 }

@@ -17,7 +17,7 @@ project("socialrps")
 add_library(
         clientlibraries
         SHARED
-        NetworkManager/INet4Address.cpp ClientLibraries/NetworkTools/Connection.cpp ClientLibraries/NetworkTools/ConnectionInstance.cpp ClientLibraries/NetworkTools/ClientConnection.cpp ClientLibraries/MessageTools/StateHandler.cpp ClientLibraries/MessageTools/Messages/AcceptMessage.cpp ClientLibraries/MessageTools/Messages/ActionMessage.cpp ClientLibraries/MessageTools/Messages/ConnectMessage.cpp ClientLibraries/MessageTools/Messages/DisconnectMessage.cpp ClientLibraries/MessageTools/Messages/RefuseMessage.cpp ClientLibraries/MessageTools/Messages/UpdateMessage.cpp
+        GameActivity/GameActivity.cpp NetworkManager/INet4Address.cpp ClientLibraries/NetworkTools/Connection.cpp ClientLibraries/NetworkTools/ConnectionInstance.cpp ClientLibraries/NetworkTools/ClientConnection.cpp ClientLibraries/MessageTools/StateHandler.cpp ClientLibraries/MessageTools/Messages/AcceptMessage.cpp ClientLibraries/MessageTools/Messages/ActionMessage.cpp ClientLibraries/MessageTools/Messages/GameStateMessage.cpp ClientLibraries/MessageTools/Messages/ConnectMessage.cpp ClientLibraries/MessageTools/Messages/DisconnectMessage.cpp ClientLibraries/MessageTools/Messages/RefuseMessage.cpp ClientLibraries/MessageTools/Messages/UpdateMessage.cpp
 )
 
 add_library( # Sets the name of the library.
@@ -25,7 +25,7 @@ add_library( # Sets the name of the library.
         # Sets the library as a shared library.
         SHARED
         # Provides a relative path to your source file(s).
-        native-lib.cpp GameActivity/GameActivity.cpp)
+        GameActivity/comsGameActivity.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by

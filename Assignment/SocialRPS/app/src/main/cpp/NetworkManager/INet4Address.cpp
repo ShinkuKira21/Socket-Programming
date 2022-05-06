@@ -36,7 +36,6 @@ NetworkManager::INet4Address::INet4Address(int port)
     length = sizeof(address);
 }
 
-
 NetworkManager::INet4Address::~INet4Address()
 {
     //Nothing here :)

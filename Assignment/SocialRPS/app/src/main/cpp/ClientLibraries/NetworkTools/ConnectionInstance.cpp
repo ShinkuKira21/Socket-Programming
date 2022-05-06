@@ -8,7 +8,7 @@
 cnt::ConnectionInstance::ConnectionInstance(int sockfd)
 { this->sockfd = sockfd; }
 
-cnt::ConnectionInstance::~ConnectionInstance() {}
+cnt::ConnectionInstance::~ConnectionInstance() { }
 
 void cnt::ConnectionInstance::SetSocket(int sock)
 { this->sockfd = sock; }

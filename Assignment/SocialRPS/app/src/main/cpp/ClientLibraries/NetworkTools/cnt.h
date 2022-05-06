@@ -13,54 +13,52 @@ namespace cnt
 {
     class Connection
     {
-    protected:
-        NetworkManager::INet4Address* address;
-        int sockfd;
+        protected:
+            NetworkManager::INet4Address* address;
+            int sockfd;
 
-    public:
-        Connection(NetworkManager::INet4Address* address);
-        ~Connection();
+        public:
+            Connection(NetworkManager::INet4Address* address);
+            ~Connection();
 
-        void InitialiseSocket();
+            void InitialiseSocket();
     };
 
     class ConnectionInstance
     {
-    private:
-        int sockfd;
+        private:
+            int sockfd;
 
-    public:
-        ConnectionInstance(int sockfd);
-        ~ConnectionInstance();
+        public:
+            ConnectionInstance(int sockfd);
+            ~ConnectionInstance();
 
-        void SetSocket(int sock);
-        int GetSocket();
+            void SetSocket(int sock);
+            int GetSocket();
 
-        void WriteN(const char* data, size_t bytesToWrite);
-        void ReadN(char* data, size_t bytesToRead);
+            void WriteN(const char* data, size_t bytesToWrite);
+            void ReadN(char* data, size_t bytesToRead);
 
-        // Senders
-        void SendInt(int value);
-        void SendString(const char* str);
+            // Senders
+            void SendInt(int value);
+            void SendString(const char* str);
 
-        // Receivers
-        int RecieveInt();
-        std::string RecieveString();
+            // Receivers
+            int RecieveInt();
+            std::string RecieveString();
 
-        // Disconnection
-        void Disconnect();
+            // Disconnection
+            void Disconnect();
     };
 
-    class ClientConnection : public Connection {
-    public:
-        ClientConnection(NetworkManager::INet4Address* address);
-        ~ClientConnection();
+    class ClientConnection : public Connection
+            {
+        public:
+            ClientConnection(NetworkManager::INet4Address* address);
+            ~ClientConnection();
 
-        void BindSocket();
-        void ListenOnSocket(int backlog);
-
-        ConnectionInstance* AcceptClient();
-        void StartServer(int backlog);
+            void BindConnection();
+            ConnectionInstance* ConnectToServer();
     };
 }
 
