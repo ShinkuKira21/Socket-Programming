@@ -52,5 +52,5 @@ RPS::ConnectedPlayer* RPS::RPSGameLogic::GetVictory() {
 
     if(draw == 3 || draw == 2) return nullptr;
     if(p1 > p2) return players[0];
-    if(p2 > p1) return players[1];
+    return players[1];
 }
