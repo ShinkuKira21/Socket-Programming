@@ -70,7 +70,7 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
 int main(int argc, char** argv)
 {
-    INet4Address address(13);
+    INet4Address address(31);
     snt::ServerConnection server(&address);
 
     server.StartServer(100);
