@@ -20,7 +20,6 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
         if(stateHandler->GetState() == smt::connect)
         {
-            
             player = new RPS::ConnectedPlayer(((smt::ConnectMessage*)stateHandler)->GetUsername().c_str(), ci);
 
             // The Java (Client) Application takes care of the username requirements - However, just make sure that the username is not blank.
@@ -56,11 +55,10 @@ void ClientHandler(snt::ConnectionInstance* ci)
         }
         else
         {
-            smt::StateHandler* reply = new smt::AcceptMessage("Accepted");
+            smt::StateHandler* reply = new smt::RefuseMessage("Refused");
             ci->SendString(reply->Serialise().c_str());
 
             delete reply;
-            break;
         }
     }
 
