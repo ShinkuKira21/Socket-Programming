@@ -7,6 +7,8 @@
 #include "Lobby/Lobby.h"
 
 #include <thread>
+#include <sstream>
+#include <string>
 
 void ClientHandler(snt::ConnectionInstance* ci)
 {
@@ -75,7 +77,6 @@ int main(int argc, char** argv)
 
     server->StartServer(100);
 
-    // create another thread to ask user.
     while(true)
     {
         snt::ConnectionInstance* ci = server->AcceptClient();
