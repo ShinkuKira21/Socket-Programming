@@ -20,9 +20,9 @@ bool GameActivity::GameActivity::RegisterGame() {
         connectMessage->SetUsername(clientInfo.playerName);
 
         SendNetworkMessage(connectMessage);
+        smt::StateHandler* state = GetNetworkMessage();
         delete connectMessage;
 
-        smt::StateHandler* state = GetNetworkMessage();
         if(state == nullptr) return false;
         switch (state->GetState())
         {

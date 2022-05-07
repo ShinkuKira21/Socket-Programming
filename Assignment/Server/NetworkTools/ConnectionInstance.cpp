@@ -13,7 +13,7 @@ void snt::ConnectionInstance::SetSocket(int sock)
 int snt::ConnectionInstance::GetSocket()
 { return sockfd; }
 
-void snt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
+void snt::ConnectionInstance::WriteN(const char* data, int bytesToWrite)
 {
     int nleft = bytesToWrite;
     int nwritten;
@@ -37,22 +37,25 @@ void snt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
     if(nleft != 0) throw nleft;
 }
 
-void snt::ConnectionInstance::ReadN(char* data, size_t bytesToRead)
+void snt::ConnectionInstance::ReadN(char* data, int bytesToRead)
 {
     int nleft = bytesToRead;
     int nread;
 
     while (nleft > 0)
     {
-        if((nread = recv(sockfd, data, nleft, 0) < 0))
+        if((nread = recv(sockfd, data, nleft, 0)) < 0)
         {
             if(errno == EINTR) nread = 0;
             else throw -1;
         }
         else
         {
-            nleft -= nread;
-            data += nread;
+            if(nread == 0) break;
+            else {
+                nleft -= nread;
+                data += nread;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ void cnt::ConnectionInstance::SetSocket(int sock)
 int cnt::ConnectionInstance::GetSocket()
 { return sockfd; }
 
-void cnt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
+void cnt::ConnectionInstance::WriteN(const char* data, int bytesToWrite)
 {
     int nleft = bytesToWrite;
     int nwritten;
@@ -40,22 +40,25 @@ void cnt::ConnectionInstance::WriteN(const char* data, size_t bytesToWrite)
     if(nleft != 0) throw nleft;
 }
 
-void cnt::ConnectionInstance::ReadN(char* data, size_t bytesToRead)
+void cnt::ConnectionInstance::ReadN(char* data, int bytesToRead)
 {
     int nleft = bytesToRead;
     int nread;
 
     while (nleft > 0)
     {
-        if((nread = recv(sockfd, data, nleft, 0) < 0))
+        if((nread = recv(sockfd, data, nleft, 0)) < 0)
         {
             if(errno == EINTR) nread = 0;
             else throw -1;
         }
         else
         {
-            nleft -= nread;
-            data += nread;
+            if(nread == 0) break;
+            else{
+                nleft -= nread;
+                data += nread;
+            }
         }
     }
 }

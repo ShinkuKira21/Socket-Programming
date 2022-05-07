@@ -29,8 +29,8 @@ namespace snt
             void SetSocket(int sock);
             int GetSocket();
 
-            void WriteN(const char* data, size_t bytesToWrite);
-            void ReadN(char* data, size_t bytesToRead);
+            void WriteN(const char* data, int bytesToWrite);
+            void ReadN(char* data, int bytesToRead);
             
             // Senders
             void SendInt(int value);
