@@ -6,7 +6,7 @@ INet4Address::INet4Address()
 }
 
 
-INet4Address::INet4Address(const char* add, int port)
+INet4Address::INet4Address(char* const add, int port)
 {
 	//Zero the entire address structure (use memset)
 	//Set the sin_family attribute to IPv4 (AF_INET)
