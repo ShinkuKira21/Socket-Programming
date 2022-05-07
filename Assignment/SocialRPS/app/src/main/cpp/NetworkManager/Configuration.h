@@ -8,7 +8,7 @@
 namespace NetworkManager {
     struct ServerConfiguration {
         inline static char ip[] = "3.11.23.103";
-        inline static int port = 50018;
+        inline static int port = 13;
     };
 }
 
