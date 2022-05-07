@@ -74,12 +74,31 @@ int main(int argc, char** argv)
 {
     INet4Address* address = new INet4Address(50018);
     snt::ServerConnection* server = new snt::ServerConnection(address);
+    std::cout << "Starting...\n";
+    bool bRunServer = true;
+    std::thread* runServer = new std::thread([server, &bRunServer]() {
+        std::thread serverInstance([server, &bRunServer]() {
+            std::vector<std::thread> cInstances;
+            server->StartServer(100);
+            while(bRunServer)
+            {
+                snt::ConnectionInstance* ci = server->AcceptClient();
+                std::thread(ClientHandler, ci);
+            }
+        });
 
-    server->StartServer(100);
+        std::string command = "";
+        while(command != "Stop" && command != "stop")
+        {
+            std::cout << "Enter command - Commands (Stop|stop): ";
+            std::getline(std::cin, command);
+        }
 
-    while(true)
-    {
-        snt::ConnectionInstance* ci = server->AcceptClient();
-        std::thread(ClientHandler, ci).detach();
-    }
+        serverInstance.detach();
+    });
+
+    runServer->join();
+    delete runServer;
+    delete server;
+    delete address;
 }
