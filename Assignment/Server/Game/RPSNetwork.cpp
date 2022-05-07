@@ -15,7 +15,6 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
     while(players[0] == nullptr || players[1] == nullptr)
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-
     if(tPlayer == players[0]) opponent = players[1];
     else if(tPlayer == players[1]) opponent = players[0];
 
