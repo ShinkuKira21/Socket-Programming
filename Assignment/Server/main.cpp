@@ -7,8 +7,6 @@
 #include "Lobby/Lobby.h"
 
 #include <thread>
-#include <sstream>
-#include <string>
 
 void ClientHandler(snt::ConnectionInstance* ci)
 {
@@ -79,6 +77,6 @@ int main(int argc, char** argv)
     while(true)
     {
         snt::ConnectionInstance* ci = server.AcceptClient();
-        std::thread(ClientHandler, ci);
+        std::thread(ClientHandler, ci).detach();
     }
 }
