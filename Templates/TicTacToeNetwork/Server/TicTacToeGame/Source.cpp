@@ -40,8 +40,7 @@ void ClientHandler(ConnectionInstance* ci)
 				ci->SendString(reply->Serialise());
 				delete reply;
 				delete player;
-
-				
+                break;
 			}
 			else if (!Lobby::Inst().GetGame()->AddPlayer(player))
 			{
@@ -49,7 +48,7 @@ void ClientHandler(ConnectionInstance* ci)
 				ci->SendString(reply->Serialise());
 				delete reply;
 				delete player;
-
+                break;
 				//close the connection
 			}
 			else
@@ -57,7 +56,6 @@ void ClientHandler(ConnectionInstance* ci)
 				Message* reply = new AcceptMessage("Welcome to the server, " + ((ConnectMessage*)m)->GetUsername() + "!");
 				ci->SendString(reply->Serialise());
 				delete reply;
-
 				break;
 			}
 		}
@@ -66,6 +64,7 @@ void ClientHandler(ConnectionInstance* ci)
 			Message* reply = new RejectMessage("Error: could not read connection data, please try again.");
 			ci->SendString(reply->Serialise());
 			delete reply;
+            break;
 		}
 	}
 

@@ -33,7 +33,6 @@ bool GameActivity::GameActivity::RegisterGame() {
             default:
                 delete state;
                 return false;
-
         }
     }
 }
@@ -43,6 +42,7 @@ void GameActivity::GameActivity::SendNetworkMessage(smt::StateHandler* state) {
         cInstance->SendString(state->Serialise().c_str());
     } catch (...)
     {
+        throw -1;
     }
 }
 
@@ -57,7 +57,7 @@ smt::StateHandler* GameActivity::GameActivity::GetNetworkMessage() {
 }
 
 bool GameActivity::GameActivity::RequestUpdate() {
-    
+    return false;
 }
 
 std::string GameActivity::GameActivity::MakeMove() {
