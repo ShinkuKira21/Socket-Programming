@@ -68,6 +68,7 @@ void ClientHandler(ConnectionInstance* ci)
 		}
 	}
 
+    std::cout << "Here";
 	Lobby::Inst().GetGame()->PlayGame(player);
 }
 
