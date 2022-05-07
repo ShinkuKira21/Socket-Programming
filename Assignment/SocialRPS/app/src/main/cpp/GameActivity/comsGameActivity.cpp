@@ -11,13 +11,13 @@ extern "C"
 JNIEXPORT jlong JNICALL
 Java_com_uwtsd_socialrps_GameActivity_InitiateGameActivity(JNIEnv *env, jobject thiz, jstring username) {
     // TODO: implement InitiateGameActivity
-    NetworkManager::INet4Address address(NetworkManager::ServerConfiguration::ip, NetworkManager::ServerConfiguration::port);
-
-    cnt::ClientConnection* serverConnection = new cnt::ClientConnection(&address);
+    NetworkManager::INet4Address* address = new NetworkManager::INet4Address(NetworkManager::ServerConfiguration::ip, NetworkManager::ServerConfiguration::port);
+    cnt::ClientConnection* serverConnection = new cnt::ClientConnection(address);
     cnt::ConnectionInstance* cInstance = serverConnection->ConnectToServer();
 
     if(cInstance == nullptr)
     {
+        delete address;
         delete serverConnection;
         delete cInstance;
 
@@ -26,6 +26,7 @@ Java_com_uwtsd_socialrps_GameActivity_InitiateGameActivity(JNIEnv *env, jobject 
 
     GameActivity::GameActivity* gameActivity = new GameActivity::GameActivity(cInstance, {env->GetStringUTFChars(username, 0)});
 
+    delete address;
     delete serverConnection;
     return (jlong) gameActivity;
 }
