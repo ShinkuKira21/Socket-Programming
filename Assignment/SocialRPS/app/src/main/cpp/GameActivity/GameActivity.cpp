@@ -23,7 +23,7 @@ bool GameActivity::GameActivity::RegisterGame() {
         delete connectMessage;
 
         smt::StateHandler* state = GetNetworkMessage();
-
+        if(state == nullptr) return false;
         switch (state->GetState())
         {
             case smt::accept:

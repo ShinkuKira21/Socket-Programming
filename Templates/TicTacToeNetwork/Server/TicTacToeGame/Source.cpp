@@ -56,6 +56,7 @@ void ClientHandler(ConnectionInstance* ci)
 				Message* reply = new AcceptMessage("Welcome to the server, " + ((ConnectMessage*)m)->GetUsername() + "!");
 				ci->SendString(reply->Serialise());
 				delete reply;
+
 				break;
 			}
 		}
@@ -68,7 +69,6 @@ void ClientHandler(ConnectionInstance* ci)
 		}
 	}
 
-    std::cout << "Here";
 	Lobby::Inst().GetGame()->PlayGame(player);
 }
 
