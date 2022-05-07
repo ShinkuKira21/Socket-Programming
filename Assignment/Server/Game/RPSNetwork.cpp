@@ -1,7 +1,9 @@
 #include "RPSNetwork.h"
 #include "../MessageTools/Messages/messages.h"
 
-RPS::RPSNetwork::RPSNetwork() {}
+RPS::RPSNetwork::RPSNetwork() {
+    state = smt::waiting;
+}
 
 RPS::RPSNetwork::~RPSNetwork() 
 { delete rps; }
@@ -12,6 +14,7 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
 
     while(players[0] == nullptr || players[1] == nullptr)
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
 
     if(tPlayer == players[0]) opponent = players[1];
     else if(tPlayer == players[1]) opponent = players[0];
@@ -35,7 +38,7 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
             }
 
                 // Invalid Message
-            else if(state->GetState() == smt::update)
+            else if(state->GetState() != smt::update)
                 tPlayer->SendNetworkState(new smt::RefuseMessage("Err30"));
 
             else
@@ -53,6 +56,9 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
                     tPlayer->SendNetworkState(new smt::DisconnectMessage("Err32"));
                     return;
                 }
+
+                // return final state (should be playing)
+                tPlayer->SendNetworkState(new smt::GamePhaseMessage(this->state));
 
                 break;
             }
@@ -72,7 +78,7 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
     }
 }
 
-GamePhase RPS::RPSNetwork::GetState()
+smt::EGamePhase RPS::RPSNetwork::GetState()
 { return state; }
 
 bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
@@ -94,5 +100,8 @@ bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
 }
 
 void RPS::RPSNetwork::InitialiseGame()
-{ rps = new RPS::RPSGameLogic(
-    players); }
+{
+    rps = new RPS::RPSGameLogic(
+    players);
+    state = smt::EGamePhase::playing;
+}

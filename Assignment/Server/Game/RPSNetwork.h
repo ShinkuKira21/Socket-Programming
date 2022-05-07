@@ -4,12 +4,6 @@
 #include "GameLogic.h"
 #include <thread>
 
-// Refactor these enums
-enum GamePhase {
-        Playing,
-        Finished
-    };
-
 enum PlayerConnectionStatus {connected, disconnected};
 
 namespace RPS 
@@ -44,7 +38,7 @@ namespace RPS
             RPS::RPSGameLogic* rps;
             ConnectedPlayer* players[2];
 
-            GamePhase state;
+            smt::EGamePhase state;
 
         public:
             RPSNetwork();
@@ -52,7 +46,7 @@ namespace RPS
 
             void PlayGame(ConnectedPlayer* tPlayer);
 
-            GamePhase GetState();
+            smt::EGamePhase GetState();
             bool AddPlayer(ConnectedPlayer* player);
 
         private:

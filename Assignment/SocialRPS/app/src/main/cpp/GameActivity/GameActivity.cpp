@@ -57,7 +57,18 @@ smt::StateHandler* GameActivity::GameActivity::GetNetworkMessage() {
 }
 
 bool GameActivity::GameActivity::RequestUpdate() {
-    return false;
+    SendNetworkMessage(new smt::UpdateMessage());
+    smt::StateHandler* state = GetNetworkMessage();
+
+    if(state->GetState() == smt::action)
+    {
+        if(((smt::GamePhaseMessage*)state)->GetState() == smt::EGamePhase::playing) return true;
+
+        return false;
+    }
+
+    // could be ideal for some proper handling here
+    throw -1;
 }
 
 std::string GameActivity::GameActivity::MakeMove() {

@@ -84,6 +84,7 @@ public class GameActivity extends AppCompatActivity {
 
     private native long InitiateGameActivity(String username);
     private native int JoinGame(long gameActivity);
+    private native int StartGame(long gameActivity);
     private native void DeconstructGameActivity(long gameActivity);
 }
 

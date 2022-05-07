@@ -22,6 +22,13 @@ namespace smt
         action
     };
 
+    enum EGamePhase {
+        waiting,
+        playing,
+        p1win,
+        p2win,
+        draw
+    };
 
     class StateHandler
     {

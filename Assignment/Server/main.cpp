@@ -12,7 +12,7 @@ void ClientHandler(snt::ConnectionInstance* ci)
 {
     smt::StateHandler* stateHandler;
     RPS::ConnectedPlayer* player;
-    bool bStartGame = false;
+
     while(true)
     {
         std::string msg = ci->RecieveString();
@@ -34,7 +34,7 @@ void ClientHandler(snt::ConnectionInstance* ci)
                 break;
             }
 
-            else if(!RPS::Lobby::Instance().GetGame())
+            else if(!RPS::Lobby::Instance().GetGame()->AddPlayer(player))
             {
                 // Lobby Full
                 smt::StateHandler* reply = new smt::RefuseMessage("Err20");
@@ -50,8 +50,6 @@ void ClientHandler(snt::ConnectionInstance* ci)
                 // Success
                 smt::StateHandler* reply = new smt::AcceptMessage("Accepted");
                 ci->SendString(reply->Serialise().c_str());
-                bStartGame = !bStartGame;
-
                 delete reply;
                 break;
             }
@@ -65,10 +63,9 @@ void ClientHandler(snt::ConnectionInstance* ci)
             break;
         }
     }
-    std::cout << "Replied...";
+
     // Starts the Game!
-    if(bStartGame)
-        RPS::Lobby::Instance().GetGame()->PlayGame(player);
+    RPS::Lobby::Instance().GetGame()->PlayGame(player);
 }
 
 int main(int argc, char** argv)
