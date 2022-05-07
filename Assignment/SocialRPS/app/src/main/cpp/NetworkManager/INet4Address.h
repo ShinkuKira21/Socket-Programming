@@ -14,7 +14,7 @@ namespace NetworkManager {
     class INet4Address {
         public:
             INet4Address();
-            INet4Address(char* add, int port);
+            INet4Address(char* const add, int port);
             INet4Address(int port);
 
             ~INet4Address();

@@ -27,7 +27,7 @@ void ClientHandler(snt::ConnectionInstance* ci)
             if(player->GetPlayerName().empty())
             {
                 // Blank Message
-                smt::StateHandler* reply = new smt::RefuseMessage("Error10");
+                smt::StateHandler* reply = new smt::RefuseMessage("Err10");
                 ci->SendString(reply->Serialise().c_str());
 
                 delete reply;

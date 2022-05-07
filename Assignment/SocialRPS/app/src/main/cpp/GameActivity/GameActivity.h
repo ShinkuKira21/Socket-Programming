@@ -27,7 +27,7 @@ namespace GameActivity {
                 std::string MakeMove();
 
             private:
-                bool SendNetworkMessage(smt::StateHandler* state);
+                void SendNetworkMessage(smt::StateHandler* state);
                 smt::StateHandler* GetNetworkMessage();
         };
 }

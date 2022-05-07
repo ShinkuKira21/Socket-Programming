@@ -57,7 +57,7 @@ namespace cnt
             ClientConnection(NetworkManager::INet4Address* address);
             ~ClientConnection();
 
-            int BindConnection();
+            bool BindConnection();
             ConnectionInstance* ConnectToServer();
     };
 }

@@ -59,7 +59,7 @@ size_t NetworkManager::INet4Address::GetSocketAddressLengthVal()
     return length;
 }
 
-void NetworkManager::INet4Address::GetSocketAddress(char* cstr, int len)
+void NetworkManager::INet4Address::GetSocketAddress(char* const cstr, int len)
 {
     //Address as a string - note, uses the cstr parameter.
     //This should use the network to presentation call - cstr is the buffer, len is the length

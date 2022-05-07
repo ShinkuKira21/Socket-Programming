@@ -44,5 +44,6 @@ JNIEXPORT int JNICALL
 Java_com_uwtsd_socialrps_GameActivity_JoinGame(JNIEnv *env, jobject thiz, jlong gameActivity) {
     // TODO: implement JoinGame()
     GameActivity::GameActivity* gameActivityInstance = (GameActivity::GameActivity*)gameActivity;
-    return gameActivityInstance->RegisterGame();
+    gameActivityInstance->RegisterGame();
+    return true;
 }

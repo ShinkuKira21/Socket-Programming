@@ -1,7 +1,7 @@
 //
 // Created by edwardpatch1 on 4/11/22.
 //
-
+#include <thread>
 #include "GameActivity.h"
 #include "../ClientLibraries/MessageTools/Messages/messages.h"
 
@@ -23,33 +23,27 @@ bool GameActivity::GameActivity::RegisterGame() {
         delete connectMessage;
 
         smt::StateHandler* state = GetNetworkMessage();
-        if(state == nullptr) return false;
 
-        switch(state->GetState())
+        switch (state->GetState())
         {
-            case smt::EState::accept:
+            case smt::accept:
                 delete state;
                 return true;
 
             default:
                 delete state;
-                break;
-        }
-        break;
-    }
+                return false;
 
-    return false;
+        }
+    }
 }
 
-bool GameActivity::GameActivity::SendNetworkMessage(smt::StateHandler* state) {
+void GameActivity::GameActivity::SendNetworkMessage(smt::StateHandler* state) {
     try {
         cInstance->SendString(state->Serialise().c_str());
     } catch (...)
     {
-        return false;
     }
-
-    return true;
 }
 
 smt::StateHandler* GameActivity::GameActivity::GetNetworkMessage() {

@@ -10,7 +10,7 @@ namespace smt {
 
         public:
             ConnectMessage();
-            virtual ~ConnectMessage();
+            ~ConnectMessage();
 
             void Serialise(std::ostream& os) override;
             void UnserialiseState(std::istream& is) override;
@@ -26,7 +26,7 @@ namespace smt {
         public:
             DisconnectMessage();
             DisconnectMessage(const char* msg);
-            virtual ~DisconnectMessage();
+            ~DisconnectMessage();
 
             void Serialise(std::ostream& os) override;
             void UnserialiseState(std::istream& is) override;
@@ -42,7 +42,7 @@ namespace smt {
         public:
             AcceptMessage();
             AcceptMessage(const char* msg);
-            virtual ~AcceptMessage();
+            ~AcceptMessage();
 
             void Serialise(std::ostream& os) override;
             void UnserialiseState(std::istream& is) override;
@@ -58,7 +58,7 @@ namespace smt {
         public:
             RefuseMessage();
             RefuseMessage(const char* msg);
-            virtual ~RefuseMessage();
+            ~RefuseMessage();
 
             void Serialise(std::ostream& os) override;
             void UnserialiseState(std::istream& is) override;
@@ -73,7 +73,7 @@ namespace smt {
 
         public:
             UpdateMessage();
-            virtual ~UpdateMessage();
+            ~UpdateMessage();
 
             void Serialise(std::ostream& os) override;
             void UnserialiseState(std::istream& is) override;
@@ -86,7 +86,7 @@ namespace smt {
         public:
             ActionMessage();
             ActionMessage(const char* msg);
-            virtual ~ActionMessage();
+            ~ActionMessage();
 
             void Serialise(std::ostream& os) override;
             void UnserialiseState(std::istream& is) override;
