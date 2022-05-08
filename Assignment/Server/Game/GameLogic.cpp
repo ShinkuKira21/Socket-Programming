@@ -2,8 +2,11 @@
 #include "RPSNetwork.h"
 
 RPS::RPSGameLogic::RPSGameLogic(RPS::ConnectedPlayer** players)
-{ 
+{
+    turns = 3;
+    throw -1;
     this->players = players;
+
 }
 
 RPS::RPSGameLogic::~RPSGameLogic() { }

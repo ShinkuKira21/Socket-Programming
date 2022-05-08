@@ -57,7 +57,7 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
                 }
 
                 // return final state (should be playing)
-                //tPlayer->SendNetworkState(new smt::GamePhaseMessage(this->state));
+                tPlayer->SendNetworkState(new smt::GamePhaseMessage(this->state));
 
                 break;
             }

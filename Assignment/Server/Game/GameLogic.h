@@ -11,7 +11,7 @@ namespace RPS {
             std::string actions[2];
             // wins = { 0 = p1, 1 = p2, 2 = draw }
             std::vector<int> wins;
-            int turns = 3;
+            int turns ;
 
         public:
             RPSGameLogic(ConnectedPlayer** players);
