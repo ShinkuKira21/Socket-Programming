@@ -57,7 +57,7 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
                 }
 
                 // return final state (should be playing)
-                tPlayer->SendNetworkState(new smt::GamePhaseMessage(this->state));
+                //tPlayer->SendNetworkState(new smt::GamePhaseMessage(this->state));
 
                 break;
             }
@@ -100,7 +100,6 @@ bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
 
 void RPS::RPSNetwork::InitialiseGame()
 {
-    rps = new RPS::RPSGameLogic(
-    players);
+    rps = new RPS::RPSGameLogic(players);
     state = smt::EGamePhase::playing;
 }
