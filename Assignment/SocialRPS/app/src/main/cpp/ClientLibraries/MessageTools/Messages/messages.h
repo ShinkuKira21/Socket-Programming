@@ -2,8 +2,6 @@
 #include "../smt.h"
 
 namespace smt {
-    enum EGameState { win, loss, draw };
-
     class ConnectMessage : public StateHandler {
         private:
             std::string username;
@@ -95,18 +93,19 @@ namespace smt {
             std::string GetMessage();
     };
 
-    class GameStateMessage : public StateHandler {
-        private:
-            EGameState gameState;
-        public:
-            GameStateMessage();
-            GameStateMessage(EGameState gameState);
-            ~GameStateMessage();
+    class GamePhaseMessage : public StateHandler {
+    private:
+        EGamePhase phase;
 
-            void Serialise(std::ostream& os) override;
-            void UnserialiseType(std::istream& is);
+    public:
+        GamePhaseMessage();
+        GamePhaseMessage(EGamePhase phase);
+        ~GamePhaseMessage();
 
-            void SetState(EGameState gameState);
-            EGameState GetState();
+        void Serialise(std::ostream& os) override;
+        void UnserialiseState(std::istream& is) override;
+
+        void SetState(EGamePhase phase);
+        EGamePhase GetState();
     };
 }

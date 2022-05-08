@@ -21,9 +21,9 @@ bool GameActivity::GameActivity::RegisterGame() {
 
         SendNetworkMessage(connectMessage);
         delete connectMessage;
-
         smt::StateHandler* state = GetNetworkMessage();
 
+        if(state == nullptr) return false;
         switch (state->GetState())
         {
             case smt::accept:
@@ -33,7 +33,6 @@ bool GameActivity::GameActivity::RegisterGame() {
             default:
                 delete state;
                 return false;
-
         }
     }
 }
@@ -43,6 +42,7 @@ void GameActivity::GameActivity::SendNetworkMessage(smt::StateHandler* state) {
         cInstance->SendString(state->Serialise().c_str());
     } catch (...)
     {
+        throw -1;
     }
 }
 
@@ -57,7 +57,20 @@ smt::StateHandler* GameActivity::GameActivity::GetNetworkMessage() {
 }
 
 bool GameActivity::GameActivity::RequestUpdate() {
-    
+    smt::UpdateMessage* updateMessage = new smt::UpdateMessage();
+    SendNetworkMessage(updateMessage);
+    delete updateMessage;
+    smt::StateHandler* state = GetNetworkMessage();
+
+    if(state->GetState() == smt::action)
+    {
+        if(((smt::GamePhaseMessage*)state)->GetState() == smt::EGamePhase::playing) return true;
+
+        return false;
+    }
+
+    // could be ideal for some proper handling here
+    throw -1;
 }
 
 std::string GameActivity::GameActivity::MakeMove() {

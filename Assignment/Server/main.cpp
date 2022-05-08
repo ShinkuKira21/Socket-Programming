@@ -20,7 +20,6 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
         if(stateHandler->GetState() == smt::connect)
         {
-            
             player = new RPS::ConnectedPlayer(((smt::ConnectMessage*)stateHandler)->GetUsername().c_str(), ci);
 
             // The Java (Client) Application takes care of the username requirements - However, just make sure that the username is not blank.
@@ -32,9 +31,10 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
                 delete reply;
                 delete player;
+                break;
             }
 
-            else if(!RPS::Lobby::Instance().GetGame())
+            else if(!RPS::Lobby::Instance().GetGame()->AddPlayer(player))
             {
                 // Lobby Full
                 smt::StateHandler* reply = new smt::RefuseMessage("Err20");
@@ -42,6 +42,7 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
                 delete reply;
                 delete player;
+                break;
             }
 
             else 
@@ -49,14 +50,13 @@ void ClientHandler(snt::ConnectionInstance* ci)
                 // Success
                 smt::StateHandler* reply = new smt::AcceptMessage("Accepted");
                 ci->SendString(reply->Serialise().c_str());
-
                 delete reply;
                 break;
             }
         }
         else
         {
-            smt::StateHandler* reply = new smt::AcceptMessage("Accepted");
+            smt::StateHandler* reply = new smt::RefuseMessage("Refused");
             ci->SendString(reply->Serialise().c_str());
 
             delete reply;
@@ -70,12 +70,10 @@ void ClientHandler(snt::ConnectionInstance* ci)
 
 int main(int argc, char** argv)
 {
-    INet4Address address(31);
+    INet4Address address(50018);
     snt::ServerConnection server(&address);
 
     server.StartServer(100);
-
-    // create another thread to ask user.
     while(true)
     {
         snt::ConnectionInstance* ci = server.AcceptClient();

@@ -11,8 +11,7 @@ cnt::ClientConnection::~ClientConnection() { }
 
 bool cnt::ClientConnection::BindConnection()
 {
-    int errorCode;
-    if((errorCode = bind(sockfd, (sockaddr*)address->GetSockaddrRef(), (int)address->GetSocketAddressLengthVal())) < 0)
+    if(connect(sockfd, (sockaddr*)address->GetSockaddrRef(), (int)address->GetSocketAddressLengthVal())< 0)
         return false;
 
     return true;

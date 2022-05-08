@@ -3,6 +3,7 @@
 //
 
 #include <jni.h>
+#include <thread>
 #include "GameActivity.h"
 #include "../NetworkManager/INet4Address.h"
 #include "../NetworkManager/Configuration.h"
@@ -45,6 +46,15 @@ JNIEXPORT int JNICALL
 Java_com_uwtsd_socialrps_GameActivity_JoinGame(JNIEnv *env, jobject thiz, jlong gameActivity) {
     // TODO: implement JoinGame()
     GameActivity::GameActivity* gameActivityInstance = (GameActivity::GameActivity*)gameActivity;
-    gameActivityInstance->RegisterGame();
-    return true;
+    return gameActivityInstance->RegisterGame();
+}
+
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_uwtsd_socialrps_GameActivity_StartGame(JNIEnv *env, jobject thiz, jlong gameActivity) {
+    // TODO: implement StartGame()
+    GameActivity::GameActivity* gameActivityInstance = (GameActivity::GameActivity*)gameActivity;
+
+    return gameActivityInstance->RequestUpdate();
 }

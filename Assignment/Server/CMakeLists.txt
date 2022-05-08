@@ -21,10 +21,11 @@ add_executable(Server
     MessageTools/Messages/ActionMessage.cpp
     MessageTools/Messages/ConnectMessage.cpp
     MessageTools/Messages/DisconnectMessage.cpp
+    MessageTools/Messages/GamePhaseMessage.cpp
     MessageTools/Messages/RefuseMessage.cpp
     MessageTools/Messages/UpdateMessage.cpp
     MessageTools/StateHandler.cpp
     NetworkTools/Connection.cpp
     NetworkTools/ConnectionInstance.cpp
     NetworkTools/ServerConnection.cpp
-    main.cpp)
+    main.cpp MessageTools/Messages/GamePhaseMessage.cpp)

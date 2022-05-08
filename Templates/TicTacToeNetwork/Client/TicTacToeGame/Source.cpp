@@ -4,7 +4,7 @@
 #include "Messages.h"
 #include "TicTacToeNetworkClient.h"
 
-#include <thread>
+#include <thread>ConnectToServer
 
 #pragma comment (lib, "Ws2_32.lib")
 #pragma comment (lib, "Mswsock.lib")

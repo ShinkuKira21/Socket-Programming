@@ -1,0 +1,4 @@
+/opt/JBCLion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/JBCLion/bin/ninja/linux/ninja -G Ninja -S "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Templates/TicTacToeNetwork/Client" -B "/home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Templates/TicTacToeNetwork/Client/cmake-build-debug"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/skira21/University of Wales Trinity St. Davids/Socket-Programming/Templates/TicTacToeNetwork/Client/cmake-build-debug

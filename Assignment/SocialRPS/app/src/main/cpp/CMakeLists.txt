@@ -17,7 +17,7 @@ project("socialrps")
 add_library(
         clientlibraries
         SHARED
-        GameActivity/GameActivity.cpp NetworkManager/INet4Address.cpp ClientLibraries/NetworkTools/Connection.cpp ClientLibraries/NetworkTools/ConnectionInstance.cpp ClientLibraries/NetworkTools/ClientConnection.cpp ClientLibraries/MessageTools/StateHandler.cpp ClientLibraries/MessageTools/Messages/AcceptMessage.cpp ClientLibraries/MessageTools/Messages/ActionMessage.cpp ClientLibraries/MessageTools/Messages/GameStateMessage.cpp ClientLibraries/MessageTools/Messages/ConnectMessage.cpp ClientLibraries/MessageTools/Messages/DisconnectMessage.cpp ClientLibraries/MessageTools/Messages/RefuseMessage.cpp ClientLibraries/MessageTools/Messages/UpdateMessage.cpp
+        GameActivity/GameActivity.cpp NetworkManager/INet4Address.cpp ClientLibraries/NetworkTools/Connection.cpp ClientLibraries/NetworkTools/ConnectionInstance.cpp ClientLibraries/NetworkTools/ClientConnection.cpp ClientLibraries/MessageTools/StateHandler.cpp ClientLibraries/MessageTools/Messages/AcceptMessage.cpp ClientLibraries/MessageTools/Messages/ActionMessage.cpp ClientLibraries/MessageTools/Messages/ConnectMessage.cpp ClientLibraries/MessageTools/Messages/DisconnectMessage.cpp ClientLibraries/MessageTools/Messages/GamePhaseMessage.cpp ClientLibraries/MessageTools/Messages/RefuseMessage.cpp ClientLibraries/MessageTools/Messages/UpdateMessage.cpp
 )
 
 add_library( # Sets the name of the library.
