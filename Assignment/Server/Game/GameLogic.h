@@ -18,7 +18,7 @@ namespace RPS {
             ~RPSGameLogic();
 
             void Action(ConnectedPlayer* player, const char* action);
-            size_t CheckForMovesRemaining();
+            bool CheckForMovesRemaining();
 
             bool CheckForVictory();
             ConnectedPlayer* GetVictory();

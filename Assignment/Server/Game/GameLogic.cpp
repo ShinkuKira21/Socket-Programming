@@ -12,12 +12,17 @@ RPS::RPSGameLogic::~RPSGameLogic() { }
 
 void RPS::RPSGameLogic::Action(RPS::ConnectedPlayer* player, const char* action)
 {
-    if(players[0] == player) this->actions[0] = action;
-    else this->actions[1] = action;
+    //if(players[0] == player) this->actions[0] = action;
+    //else this->actions[1] = action;
 }
 
-size_t RPS::RPSGameLogic::CheckForMovesRemaining()
-{ return turns; }
+bool RPS::RPSGameLogic::CheckForMovesRemaining()
+{
+    if(turns > 0)
+        return true;
+
+    return false;
+}
 
 bool RPS::RPSGameLogic::CheckForVictory()
 {

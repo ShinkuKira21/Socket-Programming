@@ -6,7 +6,7 @@ RPS::RPSNetwork::RPSNetwork() {
 }
 
 RPS::RPSNetwork::~RPSNetwork() 
-{ delete rps; }
+{ }
 
 void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
 {
