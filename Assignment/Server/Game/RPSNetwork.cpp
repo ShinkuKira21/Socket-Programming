@@ -90,6 +90,8 @@ smt::EGamePhase RPS::RPSNetwork::GetState()
 
 bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
 {
+
+    // change the players array to p1 and p2...
     if(players[0] == nullptr)
     {
         players[0] = player;
@@ -108,6 +110,6 @@ bool RPS::RPSNetwork::AddPlayer(ConnectedPlayer* player)
 
 void RPS::RPSNetwork::InitialiseGame()
 {
-    rps = new RPS::RPSGameLogic(players);
+    rps = new RPS::RPSGameLogic(players[0], players[1]);
     state = smt::EGamePhase::playing;
 }

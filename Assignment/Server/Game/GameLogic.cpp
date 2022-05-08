@@ -1,10 +1,11 @@
 #include "GameLogic.h"
 #include "RPSNetwork.h"
 
-RPS::RPSGameLogic::RPSGameLogic(RPS::ConnectedPlayer** players)
+RPS::RPSGameLogic::RPSGameLogic(RPS::ConnectedPlayer* player1, RPS::ConnectedPlayer* player2)
 {
     turns = 3;
-    this->players = players;
+    this->players[0] = player1;
+    this->players[1] = player2;
 }
 
 RPS::RPSGameLogic::~RPSGameLogic() { }

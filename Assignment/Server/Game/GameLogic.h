@@ -7,14 +7,14 @@ namespace RPS {
     class ConnectedPlayer;
     class RPSGameLogic {
         private:
-            ConnectedPlayer** players;
+            ConnectedPlayer* players[2];
             std::string actions[2];
             // wins = { 0 = p1, 1 = p2, 2 = draw }
             std::vector<int> wins;
             int turns ;
 
         public:
-            RPSGameLogic(ConnectedPlayer** players);
+            RPSGameLogic(ConnectedPlayer* player1, ConnectedPlayer* player2);
             ~RPSGameLogic();
 
             void Action(ConnectedPlayer* player, const char* action);
