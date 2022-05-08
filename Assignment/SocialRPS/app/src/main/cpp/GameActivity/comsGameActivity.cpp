@@ -56,10 +56,5 @@ Java_com_uwtsd_socialrps_GameActivity_StartGame(JNIEnv *env, jobject thiz, jlong
     // TODO: implement StartGame()
     GameActivity::GameActivity* gameActivityInstance = (GameActivity::GameActivity*)gameActivity;
 
-    while(!gameActivityInstance->RequestUpdate())
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
-
-    return true;
+    return gameActivityInstance->RequestUpdate();
 }

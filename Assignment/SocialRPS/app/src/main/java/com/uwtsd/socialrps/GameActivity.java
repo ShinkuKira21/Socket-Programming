@@ -31,6 +31,7 @@ public class GameActivity extends AppCompatActivity {
         playerName = getIntent().getExtras().get("socialrps.playerName").toString();
 
         FindGame();
+
         // Binding setup for actions
         gameManager = new GameManager(binding, playerName);
     }
@@ -51,16 +52,10 @@ public class GameActivity extends AppCompatActivity {
     {
         super.onDestroy();
 
-        try {
-            if(animFindingGame != null && animFindingGame.isAlive())
-            {
-                animFindingGame.StopAnim();
-                animFindingGame.join();
-            }
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            animFindingGame.interrupt();
+        if(animFindingGame != null && animFindingGame.isAlive())
+        {
+            animFindingGame.StopAnim();
         }
 
         DeconstructGameActivity(gameActivity);
@@ -79,7 +74,18 @@ public class GameActivity extends AppCompatActivity {
             System.out.println("Error!");
             onBackPressed();
         }
-        System.out.println(status);
+
+        Thread startGame = new Thread(() -> {
+            while(StartGame(gameActivity) == 0)
+            {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        startGame.start();
     }
 
     private native long InitiateGameActivity(String username);

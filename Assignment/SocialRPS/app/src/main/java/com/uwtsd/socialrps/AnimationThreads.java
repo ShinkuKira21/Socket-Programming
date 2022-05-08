@@ -51,6 +51,9 @@ public class AnimationThreads extends Thread {
     {
         bRunning = false;
     }
+    public void UpdateAnim(Boolean toggle) {
+        bRunning = toggle;
+    }
 
     private int Limit(int pos, int current)
     {

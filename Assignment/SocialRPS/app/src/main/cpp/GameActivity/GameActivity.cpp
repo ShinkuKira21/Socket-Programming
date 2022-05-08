@@ -20,8 +20,8 @@ bool GameActivity::GameActivity::RegisterGame() {
         connectMessage->SetUsername(clientInfo.playerName);
 
         SendNetworkMessage(connectMessage);
-        smt::StateHandler* state = GetNetworkMessage();
         delete connectMessage;
+        smt::StateHandler* state = GetNetworkMessage();
 
         if(state == nullptr) return false;
         switch (state->GetState())
@@ -57,7 +57,9 @@ smt::StateHandler* GameActivity::GameActivity::GetNetworkMessage() {
 }
 
 bool GameActivity::GameActivity::RequestUpdate() {
-    SendNetworkMessage(new smt::UpdateMessage());
+    smt::UpdateMessage* updateMessage = new smt::UpdateMessage();
+    SendNetworkMessage(updateMessage);
+    delete updateMessage;
     smt::StateHandler* state = GetNetworkMessage();
 
     if(state->GetState() == smt::action)
