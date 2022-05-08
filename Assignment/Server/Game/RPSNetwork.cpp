@@ -44,7 +44,6 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
                 delete refuseMessage;
             }
 
-
             else
             {
                 if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
@@ -66,11 +65,9 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
                 }
 
                 // return final state (should be playing)
-                smt::GamePhaseMessage* gamePhaseMessage = new smt::GamePhaseMessage(this->state);
+                smt::GamePhaseMessage* gamePhaseMessage = new smt::GamePhaseMessage(GetState());
                 tPlayer->SendNetworkState(gamePhaseMessage);
                 delete gamePhaseMessage;
-
-                break;
             }
         }
 
