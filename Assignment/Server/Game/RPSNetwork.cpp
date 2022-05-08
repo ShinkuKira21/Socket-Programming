@@ -38,26 +38,37 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
 
                 // Invalid Message
             else if(state->GetState() != smt::update)
-                tPlayer->SendNetworkState(new smt::RefuseMessage("Err30"));
+            {
+                smt::RefuseMessage* refuseMessage = new smt::RefuseMessage("Err30");
+                tPlayer->SendNetworkState(refuseMessage);
+                delete refuseMessage;
+            }
+
 
             else
             {
                 if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
                 {
                     tPlayer->SetDisconnected();
-                    tPlayer->SendNetworkState(new smt::DisconnectMessage("Err31"));
+                    smt::RefuseMessage* refuseMessage = new smt::RefuseMessage("Err31");
+                    tPlayer->SendNetworkState(refuseMessage);
+                    delete refuseMessage;
                     return;
                 }
 
                 if(tPlayer->GetConnectionStatus() == connected && opponent->GetConnectionStatus() == disconnected)
                 {
                     tPlayer->SetDisconnected();
-                    tPlayer->SendNetworkState(new smt::DisconnectMessage("Err32"));
+                    smt::RefuseMessage* refuseMessage = new smt::RefuseMessage("Err32");
+                    tPlayer->SendNetworkState(refuseMessage);
+                    delete refuseMessage;
                     return;
                 }
 
                 // return final state (should be playing)
-                tPlayer->SendNetworkState(new smt::GamePhaseMessage(this->state));
+                smt::GamePhaseMessage* gamePhaseMessage = new smt::GamePhaseMessage(this->state);
+                tPlayer->SendNetworkState(gamePhaseMessage);
+                delete gamePhaseMessage;
 
                 break;
             }

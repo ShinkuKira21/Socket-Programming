@@ -5,7 +5,6 @@ RPS::RPSGameLogic::RPSGameLogic(RPS::ConnectedPlayer** players)
 {
     turns = 3;
     this->players = players;
-    throw -1;
 }
 
 RPS::RPSGameLogic::~RPSGameLogic() { }
