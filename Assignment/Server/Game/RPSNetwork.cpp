@@ -68,6 +68,8 @@ void RPS::RPSNetwork::PlayGame(ConnectedPlayer* tPlayer)
                 smt::GamePhaseMessage* gamePhaseMessage = new smt::GamePhaseMessage(GetState());
                 tPlayer->SendNetworkState(gamePhaseMessage);
                 delete gamePhaseMessage;
+
+                if(GetState()) break;
             }
         }
 
