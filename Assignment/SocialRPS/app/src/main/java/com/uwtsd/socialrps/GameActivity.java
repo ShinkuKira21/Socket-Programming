@@ -30,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         playerName = getIntent().getExtras().get("socialrps.playerName").toString();
 
+        // Server needs to run at this stage!
         FindGame();
 
         // Binding setup for actions
